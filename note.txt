@@ -1,0 +1,15 @@
+- ĐỌC NOTE CỦA THẦY TRONG PIAZZA
+- sau khi clone code về, tự tạo branch của mình
+
+git checkout -b Trieu
+echo 'Day la branch cua Trieu' >> README.md
+git add .
+git commit -m 'First commit'
+git push origin Trieu
+ 
+-kiểm tra xem mình đang ở nhánh nào 
+git branch
+'mà cũng k cần, nó có ghi ngay ở đấy rồi'
+
+-trước khi code cái gì thì để ý xem là mình đang ở nhánh nào
+-chỉ làm việc trên nhánh của mình
