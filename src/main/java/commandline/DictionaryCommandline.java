@@ -6,7 +6,7 @@ public class DictionaryCommandline {
 
     /** Hiển thi từ điển. */
     public void showAllWords(Dictionary dictionary){
-
+        System.out.println("HEllos");
 
     }
 
