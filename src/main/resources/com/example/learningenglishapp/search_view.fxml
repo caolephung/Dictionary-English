@@ -17,7 +17,7 @@
 
 <AnchorPane fx:id="Screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFECB3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.SearchControll">
    <children>
-      <TextField fx:id="Searching" layoutX="324.0" layoutY="26.0" onAction="#search" prefHeight="31.0" prefWidth="236.0" promptText="Search">
+      <TextField fx:id="Searching" layoutX="324.0" layoutY="26.0" onAction="#search" prefHeight="31.0" prefWidth="236.0" promptText="Search" style="-fx-background-radius: 20;">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -34,11 +34,11 @@
       </ImageView>
       <VBox fx:id="VBoxMain" layoutY="65.0" prefHeight="330.0" prefWidth="600.0" style="-fx-border-width: 2; -fx-border-color: white;">
          <children>
-            <Pane fx:id="AllButton" prefHeight="62.0" prefWidth="596.0" style="-fx-background-color: #B2DFDB; -fx-border-color: black;">
+            <Pane fx:id="AllButton" prefHeight="48.0" prefWidth="534.0" style="-fx-background-color: #B2DFDB; -fx-border-color: black;">
                <children>
-                  <Button fx:id="addWord" layoutX="279.0" layoutY="9.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0" style="-fx-background-color: #B2DFDB;" textFill="#686161">
+                  <Button fx:id="addWord" layoutX="278.0" layoutY="5.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0" style="-fx-background-color: #B2DFDB;" textFill="#686161">
                      <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@imageAndicon/Icon/add.png" />
                            </image></ImageView>
@@ -47,7 +47,7 @@
                         <Tooltip text="thêm từ mới" />
                      </tooltip>
                   </Button>
-                  <Button fx:id="search" layoutX="60.0" layoutY="9.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0" style="-fx-background-color: #B2DFDB;" textFill="#686161">
+                  <Button fx:id="search" layoutX="63.0" layoutY="5.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0" style="-fx-background-color: #B2DFDB;" textFill="#686161">
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -59,7 +59,7 @@
                         <Tooltip text="thêm từ mới" />
                      </tooltip>
                   </Button>
-                  <SplitMenuButton fx:id="Games" layoutX="455.0" layoutY="8.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="0.0" style="-fx-background-color: #B2DFDB;">
+                  <SplitMenuButton fx:id="Games" layoutX="455.0" layoutY="4.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="0.0" style="-fx-background-color: transparent;">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Action 1">
                            <graphic>
@@ -80,9 +80,9 @@
                         </ImageView>
                      </graphic>
                   </SplitMenuButton>
-                  <Button fx:id="ListenAndRead" layoutX="166.0" layoutY="8.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: #B2DFDB;" textFill="#686161">
+                  <Button fx:id="ListenAndRead" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: #B2DFDB;" textFill="#686161">
                      <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@imageAndicon/Icon/reading-book.png" />
                            </image>
@@ -95,8 +95,8 @@
                </children></Pane>
             <HBox fx:id="WordAndDefine" prefHeight="293.0" prefWidth="596.0">
                <children>
-                  <ListView fx:id="AllWord" prefHeight="282.0" prefWidth="175.0" style="-fx-border-color: black;" />
-                  <WebView fx:id="Define" prefHeight="293.0" prefWidth="423.0" />
+                  <ListView fx:id="AllWord" prefHeight="286.0" prefWidth="143.0" style="-fx-border-color: black;" />
+                  <WebView fx:id="Define" prefHeight="286.0" prefWidth="460.0" />
                </children>
             </HBox>
          </children>

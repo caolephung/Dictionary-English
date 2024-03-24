@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
 import java.io.BufferedReader;
@@ -72,23 +73,34 @@ public class SearchControll {
     private WebView Define;
 
     @FXML
-    void search(ActionEvent event) {
+    private void initialize() {
+        try {
+            WordAndDefine();
+            readData();
+            loadWordList();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void search(ActionEvent event) throws IOException {
 
     }
 
     @FXML
-    public void WordAndDefine (Scene scene) {
-        this.Define = (WebView)scene.lookup("Define");
-        this.AllWord = (ListView<String>) scene.lookup("AllWord");
-        SearchControll context = this;
+    public void WordAndDefine () {
+        SearchControll context = this; // Lưu context hiện tại để sử dụng trong lambda expression
         this.AllWord.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
-                    Word selectedWord = data.get(newValue);
-                    String definition = selectedWord.getDef();
-                    context.Define.getEngine().loadContent(definition, "text/html");
+                    if (newValue != null) {
+                        Word selectedWord = data.get(newValue);
+                        String definition = selectedWord.getDef();
+                        context.Define.getEngine().loadContent(definition, "text/html");
+                    }
                 }
         );
     }
+
     public void loadWordList() {
         this.AllWord.getItems().addAll(data.keySet());
     }
@@ -107,6 +119,18 @@ public class SearchControll {
         fis.close();
         br.close();
     }
+
+//    @FXML
+//    public void wordSelected() {
+//        String selectedWord = AllWord.getSelectionModel().getSelectedItem();
+//        if (selectedWord != null) {
+//            Word word = data.get(selectedWord);
+//            if (word != null) {
+//                WebView engine = Define.getEngine();
+//                ((WebEngine) engine).loadContent(word.getDef(), "text/html");
+//            }
+//        }
+//    }
 }
 
 class Word {
