@@ -1,12 +1,11 @@
 package commandline;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.Map;
 import java.util.Scanner;
 
 public class DictionaryManagement {
+    protected Dictionary dictionary = new Dictionary();
 
     /**
      * Chỉnh sửa lại từ cho chuẩn
@@ -20,7 +19,7 @@ public class DictionaryManagement {
     }
 
     /** Thêm từ mới từ bàn phím. */
-    public void insertFromCommandline(Dictionary dictionary){
+    public void insertFromCommandline(){
         System.out.print("Enter the number of word: ");
         Scanner ip = new Scanner(System.in);
         int cnt = ip.nextInt();
@@ -54,8 +53,7 @@ public class DictionaryManagement {
     }
 
     /** Thêm từ mới từ file. */
-    public void insertFromFile(Dictionary dictionary) throws IOException {
-        String path = "dictionaries.txt";
+    public void insertFromFile(String path) throws IOException {
         FileReader fs = new FileReader(path);
         BufferedReader bs = new BufferedReader(fs);
         String line;
@@ -71,7 +69,7 @@ public class DictionaryManagement {
     }
 
     /** Tra cứu từ điển. */
-    public void dictionaryLookup(Dictionary dictionary) {
+    public void dictionaryLookup() {
         System.out.print("Enter the word to search: ");
         Scanner ip = new Scanner(System.in);
         String SearchWord = ip.nextLine();
@@ -84,7 +82,7 @@ public class DictionaryManagement {
     }
 
     /** Sửa nghĩa của từ đã có sẵn. */
-    public void changeExplain(Dictionary dictionary) {
+    public void changeExplain() {
         System.out.print("Enter the word to be changed: ");
         Scanner ip = new Scanner(System.in);
         String word = ip.nextLine();
@@ -102,7 +100,7 @@ public class DictionaryManagement {
     }
 
     /** Xóa từ. */
-    public void removeWord(Dictionary dictionary) {
+    public void removeWord() {
         System.out.print("Enter the word to be removed: ");
         Scanner ip = new Scanner(System.in);
         String word = ip.nextLine();
@@ -119,12 +117,26 @@ public class DictionaryManagement {
      * Kết quả trả về: danh sách các từ vựng bắt đầu bằng “tra”: transport, translate,
      * transform, transit, ...
      */
-    public void dictionarySearch(Dictionary dictionary) {
+    public void dictionarySearch() {
+        Scanner ip = new Scanner(System.in);
+        String search = ip.nextLine();
 
     }
 
     /** Xuất dữ liệu từ điển hiện tại ra tệp. */
-    public void dictionaryExportToFile(Dictionary dictionary) {
+    public void dictionaryExportToFile(String path) throws IOException {
+        FileWriter fw = new FileWriter(path);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for (Map.Entry<String, String> entry : dictionary.getWords().entrySet()) {
+            bw.write(entry.getKey() + ": " + entry.getValue());
+            bw.newLine();
+        }
+        fw.close();
+        bw.close();
+    }
+
+    /** Game. */
+    public void dictionaryGame() {
 
     }
 }

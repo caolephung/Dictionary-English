@@ -33,6 +33,7 @@ public class WelcomeControll {
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
+
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,4 +79,6 @@ public class WelcomeControll {
             e.printStackTrace();
         }
     }
+
+
 }
