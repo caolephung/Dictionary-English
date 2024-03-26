@@ -7,6 +7,13 @@ import java.util.Scanner;
 public class DictionaryManagement {
     protected Dictionary dictionary = new Dictionary();
 
+    public DictionaryManagement(Dictionary dictionary) {
+        this.dictionary = dictionary;
+    }
+
+    public DictionaryManagement() {
+    }
+
     /**
      * Chỉnh sửa lại từ cho chuẩn
      * Ví dụ: "enGliSh" -> "English"
@@ -22,17 +29,17 @@ public class DictionaryManagement {
     public void insertFromCommandline(){
         System.out.print("Enter the number of word: ");
         Scanner ip = new Scanner(System.in);
-        int cnt = ip.nextInt();
+        int cnt = ip.nextInt(); ip.nextLine();
         for(int i = 0; i < cnt; i++){
             System.out.println("Word " + i + ":");
             System.out.print("word_target: ");
-            ip.nextLine();
             String word = ip.nextLine();
             word = fix(word);
             System.out.print("word_explain: ");
-            ip.nextLine();
             String define = ip.nextLine();
             define = fix(define);
+
+            Word newWord = new Word(word, define);
 
             /** Kiểm tra từ đã tồn tại hay chưa
              * Nếu chưa tồn tại thì thêm vào
@@ -44,10 +51,10 @@ public class DictionaryManagement {
                 System.out.print("Do you want to change ? (0: no, 1: yes) : ");
                 int option = ip.nextInt();
                 if (option == 1) {
-                    dictionary.getWords().put(word, define);
-                } else {
-                    dictionary.getWords().put(word, define);
+                    dictionary.addWord(newWord);
                 }
+            } else {
+                dictionary.addWord(newWord);
             }
         }
     }
@@ -118,8 +125,23 @@ public class DictionaryManagement {
      * transform, transit, ...
      */
     public void dictionarySearch() {
+        Dictionary listWord = new Dictionary();
+        System.out.print("Enter the start word: ");
         Scanner ip = new Scanner(System.in);
         String search = ip.nextLine();
+        for(String word : dictionary.getWords().keySet()) {
+            if (word.startsWith(search)) {
+                Word wordAdd = new Word(word, dictionary.getWords().get(word));
+                listWord.addWord(wordAdd);
+            }
+        }
+        if (listWord.getWords().isEmpty()) {
+            System.out.println("Not Found!");
+        } else {
+            DictionaryCommandline dictionaryCommandline = new DictionaryCommandline(listWord);
+            dictionaryCommandline.showAllWords();
+
+        }
 
     }
 

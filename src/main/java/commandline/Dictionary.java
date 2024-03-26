@@ -18,6 +18,11 @@ public class Dictionary {
     public void addWord(Word word){
         words.put(word.getWord_target(), word.getWord_explain());
     }
+
+    public void addWord(String word, String explain){
+        words.put(word, explain);
+    }
+
 }
 
 

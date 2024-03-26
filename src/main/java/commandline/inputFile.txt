@@ -1,0 +1,3 @@
+Dog\tcon cho
+Cat\tcon meo
+Duck\tCon viT
