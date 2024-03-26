@@ -10,6 +10,10 @@ public class DictionaryCommandline {
         dictionaryManagement = new DictionaryManagement();
     }
 
+    public DictionaryCommandline(Dictionary dictionary) {
+        dictionaryManagement = new DictionaryManagement(dictionary);
+    }
+
     /** Hiển thi từ điển. */
     public void showAllWords(){
         // Lấy độ dài của từ dài nhất
@@ -62,48 +66,47 @@ public class DictionaryCommandline {
                 "[6] Search\n" +
                 "[7] Game\n" +
                 "[8] Import from file\n" +
-                "\n" +
-                "2\n" +
-                "\n" +
-                "[9] Export to file\n" +
-                "Your action: ");
-        Scanner ip = new Scanner(System.in);
-        int action = ip.nextInt();
-        switch (action) {
-            case 0:
-
-                break;
-            case 1:
-                dictionaryManagement.insertFromCommandline();
-                break;
-            case 2:
-                dictionaryManagement.removeWord();
-                break;
-            case 3:
-                dictionaryManagement.changeExplain();
-                break;
-            case 4:
-                showAllWords();
-                break;
-            case 5:
-                dictionaryManagement.dictionaryLookup();
-                break;
-            case 6:
-                dictionaryManagement.dictionarySearch();
-                break;
-            case 7:
-                dictionaryManagement.dictionaryGame();
-                break;
-            case 8:
-                String pathIN = "";
-                dictionaryManagement.insertFromFile(pathIN);
-                break;
-            case 9:
-                String pathOUT = "";
-                dictionaryManagement.dictionaryExportToFile(pathOUT);
-                break;
-            default:
-                System.out.println("Action not supported");
+                "[9] Export to file\n");
+        while(true) {
+            System.out.print("Your action: ");
+            Scanner ip = new Scanner(System.in);
+            int action = ip.nextInt();
+            switch (action) {
+                case 0:
+                    System.out.println("END.");
+                    return;
+                case 1:
+                    dictionaryManagement.insertFromCommandline();
+                    break;
+                case 2:
+                    dictionaryManagement.removeWord();
+                    break;
+                case 3:
+                    dictionaryManagement.changeExplain();
+                    break;
+                case 4:
+                    showAllWords();
+                    break;
+                case 5:
+                    dictionaryManagement.dictionaryLookup();
+                    break;
+                case 6:
+                    dictionaryManagement.dictionarySearch();
+                    break;
+                case 7:
+                    dictionaryManagement.dictionaryGame();
+                    break;
+                case 8:
+                    String pathIN = "src/main/java/commandline/inputFile.txt";
+                    dictionaryManagement.insertFromFile(pathIN);
+                    break;
+                case 9:
+                    String pathOUT = "/commandline/outputFile.txt";
+                    dictionaryManagement.dictionaryExportToFile(pathOUT);
+                    break;
+                default:
+                    System.out.println("Action not supported");
+            }
         }
     }
 }
