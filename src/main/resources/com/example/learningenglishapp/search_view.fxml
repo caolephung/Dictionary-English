@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
@@ -36,55 +34,11 @@
          <children>
             <Pane fx:id="AllButton" prefHeight="48.0" prefWidth="534.0" style="-fx-background-color: #B2DFDB; -fx-border-color: black;">
                <children>
-                  <Button fx:id="addWord" layoutX="278.0" layoutY="5.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0" style="-fx-background-color: #B2DFDB;" textFill="#686161">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imageAndicon/Icon/add.png" />
-                           </image></ImageView>
-                     </graphic>
-                     <tooltip>
-                        <Tooltip text="thêm từ mới" />
-                     </tooltip>
-                  </Button>
                   <Button fx:id="search" layoutX="63.0" layoutY="5.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0" style="-fx-background-color: #B2DFDB;" textFill="#686161">
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@imageAndicon/Icon/loupe.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <tooltip>
-                        <Tooltip text="thêm từ mới" />
-                     </tooltip>
-                  </Button>
-                  <SplitMenuButton fx:id="Games" layoutX="455.0" layoutY="4.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="0.0" style="-fx-background-color: transparent;">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1">
-                           <graphic>
-                              <Button fx:id="Game1" mnemonicParsing="false" />
-                           </graphic>
-                        </MenuItem>
-                      <MenuItem mnemonicParsing="false" text="Action 2">
-                           <graphic>
-                              <Button fx:id="Game2" mnemonicParsing="false" />
-                           </graphic>
-                        </MenuItem>
-                    </items>
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imageAndicon/Icon/games.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </SplitMenuButton>
-                  <Button fx:id="ListenAndRead" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: #B2DFDB;" textFill="#686161">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imageAndicon/Icon/reading-book.png" />
                            </image>
                         </ImageView>
                      </graphic>
