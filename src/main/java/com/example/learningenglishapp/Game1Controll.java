@@ -29,4 +29,18 @@ public class Game1Controll {
             e.printStackTrace();
         }
     }
+
+//    @FXML
+//    private void SoundButtonAction(ActionEvent event) {
+//        // Đường dẫn đến file âm thanh
+//        String path = "com/example/learningenglishapp/Sound/Cau-noi-ui-doi-oi-de-vl-sound-effect-bomman.mp3";
+//        // Tạo đối tượng Media từ file âm thanh
+//        Media media = new Media(new File(path).toURI().toString());
+//
+//        // Tạo đối tượng MediaPlayer từ Media
+//        MediaPlayer mediaPlayer = new MediaPlayer(media);
+//
+//        // Bắt đầu phát âm thanh
+//        mediaPlayer.play();
+//    }
 }
