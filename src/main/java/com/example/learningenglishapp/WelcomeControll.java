@@ -28,7 +28,7 @@ public class WelcomeControll {
     @FXML
     private void searchButtonAction(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("search_view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Search_view.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
