@@ -65,7 +65,7 @@ public class DictionaryManagement {
         BufferedReader bs = new BufferedReader(fs);
         String line;
         while ((line = bs.readLine()) != null) {
-            String[] word_explain = line.split("\\t");
+            String[] word_explain = line.split(" : ");
             String word = fix(word_explain[0]);
             String explain = fix(word_explain[1]);
             Word newWord = new Word(word, explain);
@@ -140,7 +140,6 @@ public class DictionaryManagement {
         } else {
             DictionaryCommandline dictionaryCommandline = new DictionaryCommandline(listWord);
             dictionaryCommandline.showAllWords();
-
         }
 
     }
@@ -153,12 +152,12 @@ public class DictionaryManagement {
             bw.write(entry.getKey() + ": " + entry.getValue());
             bw.newLine();
         }
-        fw.close();
         bw.close();
     }
 
     /** Game. */
     public void dictionaryGame() {
+        System.out.println("Start game!");
 
     }
 }

@@ -7,7 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import org.w3c.dom.events.Event;
+import java.io.File;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.io.IOException;
 
@@ -30,17 +32,16 @@ public class Game1Controll {
         }
     }
 
-//    @FXML
-//    private void SoundButtonAction(ActionEvent event) {
-//        // Đường dẫn đến file âm thanh
-//        String path = "com/example/learningenglishapp/Sound/Cau-noi-ui-doi-oi-de-vl-sound-effect-bomman.mp3";
-//        // Tạo đối tượng Media từ file âm thanh
-//        Media media = new Media(new File(path).toURI().toString());
-//
-//        // Tạo đối tượng MediaPlayer từ Media
-//        MediaPlayer mediaPlayer = new MediaPlayer(media);
-//
-//        // Bắt đầu phát âm thanh
-//        mediaPlayer.play();
-//    }
+    @FXML
+    private void SoundButtonAction(ActionEvent event) {
+        // Đường dẫn đến file âm thanh
+        String path = "src/main/resources/com/example/learningenglishapp/Sound/Bomman.mp3";
+        Media media = new Media(new File(path).toURI().toString());
+
+        // Tạo một đối tượng MediaPlayer với đối tượng Media
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+        // Bắt đầu phát âm thanh
+        mediaPlayer.play();
+    }
 }

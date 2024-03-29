@@ -1,10 +1,10 @@
 package com.example.learningenglishapp;
 
-import javafx.event.ActionEvent;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SplitMenuButton;
@@ -15,8 +15,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -80,18 +78,48 @@ public class ShowAllWordsControll {
             WordAndDefine();
             readData();
             loadWordList();
+            // Thiết lập sự kiện lắng nghe những thay đổi của Searching để liên tục cập nhật
+            setUpSearchListener();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    @FXML
-    void search(ActionEvent event) throws IOException {
 
+    @FXML
+    private void setUpSearchListener() {
+        // Sử dụng sự kiện textProperty() của TextField để theo dõi sự thay đổi
+        Searching.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                search(); // Gọi hàm search() mỗi khi nội dung của TextField thay đổi
+            }
+        });
+    }
+    @FXML
+    private void search() {
+        String keyword = Searching.getText().toLowerCase(); // Lấy từ nhập từ TextField và chuyển thành chữ thường
+
+        // Xóa danh sách từ hiện tại
+        AllWord.getItems().clear();
+
+        // Tạo danh sách mới để chứa các từ phù hợp
+        ObservableList<String> matchingWords = FXCollections.observableArrayList();
+
+        // Duyệt qua tất cả các từ trong dữ liệu và thêm các từ phù hợp vào danh sách mới
+        for (Map.Entry<String, Word> entry : data.entrySet()) {
+            String word = entry.getKey().toLowerCase();
+            if (word.startsWith(keyword)) {
+                matchingWords.add(entry.getKey());
+            }
+        }
+
+        // Cập nhật ListView với danh sách từ phù hợp
+        AllWord.setItems(matchingWords);
     }
 
     @FXML
     public void WordAndDefine () {
-        ShowAllWordsControll context = this; // Lưu context hiện tại để sử dụng trong lambda expression
+        ShowAllWordsControll context = this;
         this.AllWord.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
                     if (newValue != null) {
@@ -121,9 +149,6 @@ public class ShowAllWordsControll {
         fis.close();
         br.close();
     }
-
-
-
 }
 
 class Word {
