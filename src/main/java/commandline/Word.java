@@ -21,4 +21,5 @@ public class Word{
     public String getWord_explain() {
         return word_explain;
     }
+    abc;
 }
