@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.TranslateControll">
+   <children>
+      <TextField fx:id="inputTextField" layoutX="150.0" layoutY="31.0" onAction="#translateText" />
+      <TextArea fx:id="outputText" layoutX="118.0" layoutY="75.0" prefHeight="62.0" prefWidth="191.0" />
+      <Text fx:id="source" layoutX="411.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EN" />
+      <Text fx:id="target" layoutX="415.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VI" />
+      <Button layoutX="403.0" layoutY="69.0" mnemonicParsing="false" text="Swap" />
+   </children>
+</AnchorPane>

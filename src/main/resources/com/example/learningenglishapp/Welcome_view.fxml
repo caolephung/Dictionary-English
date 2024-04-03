@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.WelcomeControll">
    <children>
-      <ImageView fitHeight="149.0" fitWidth="140.0" layoutX="69.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="149.0" fitWidth="140.0" layoutX="59.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imageAndicon/Icon/welcome-back.png" />
          </image>
@@ -22,32 +19,32 @@
             <Image url="@imageAndicon/Icon/route.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="110.0" fitWidth="139.0" layoutX="473.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="110.0" fitWidth="139.0" layoutX="447.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imageAndicon/Icon/Logo.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="41.0" layoutX="277.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="44.0" fitWidth="41.0" layoutX="259.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imageAndicon/Icon/logo2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="58.0" fitWidth="119.0" layoutX="324.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="58.0" fitWidth="119.0" layoutX="310.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imageAndicon/Icon/Learning.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="140.0" layoutX="268.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="36.0" fitWidth="140.0" layoutX="234.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imageAndicon/Icon/English.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="47.0" fitWidth="92.0" layoutX="383.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="47.0" fitWidth="92.0" layoutX="355.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imageAndicon/Icon/with.png" />
          </image>
       </ImageView>
-      <Button fx:id="search" layoutX="328.0" layoutY="137.0" mnemonicParsing="false" onAction="#searchButtonAction" prefHeight="29.0" prefWidth="54.0" style="-fx-background-color: #D8F0EE;">
+      <Button fx:id="search" layoutX="328.0" layoutY="137.0" mnemonicParsing="false" onAction="#TranslateButtonAction" prefHeight="29.0" prefWidth="54.0" style="-fx-background-color: #D8F0EE;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -56,7 +53,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="ListenAndRead" layoutX="328.0" layoutY="200.0" mnemonicParsing="false" onAction="#listenandreadButtonAction" prefHeight="29.0" prefWidth="54.0" style="-fx-background-color: #D8F0EE;">
+      <Button fx:id="showAllWords" layoutX="328.0" layoutY="200.0" mnemonicParsing="false" onAction="#ShowAllWordsButtonAction" prefHeight="29.0" prefWidth="54.0" style="-fx-background-color: #D8F0EE;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -65,47 +62,35 @@
             </ImageView>
          </graphic>
       </Button>
-      <Text layoutX="411.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" wrappingWidth="109.87499803304672">
+      <Text layoutX="411.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Translate" wrappingWidth="109.87499803304672">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="408.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Listen and Read" wrappingWidth="189.00000303983688">
+      <Text layoutX="408.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show all words" wrappingWidth="189.00000303983688">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Pane layoutX="297.0" layoutY="247.0" prefHeight="148.0" prefWidth="301.0" style="-fx-background-color: #FFF6D1;">
-         <children>
-            <SplitMenuButton layoutX="32.0" layoutY="23.0" mnemonicParsing="false">
-              <items>
-                <MenuItem mnemonicParsing="false">
-                     <graphic>
-                        <Button fx:id="Game1" mnemonicParsing="false" onAction="#game1ButtonAction" />
-                     </graphic>
-                  </MenuItem>
-                <MenuItem mnemonicParsing="false">
-                     <graphic>
-                        <Button fx:id="Game2" mnemonicParsing="false" onAction="#game2ButtonAction" />
-                     </graphic>
-                  </MenuItem>
-              </items>
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imageAndicon/Icon/games.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </SplitMenuButton>
-            <Text layoutX="114.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" wrappingWidth="109.87499803304672">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
-      <Pane prefHeight="400.0" prefWidth="50.0" style="-fx-background-color: BLANCHEDALMOND;" />
-      <Pane prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: CORNFLOWERBLUE;" />
+      <Button fx:id="Games" layoutX="328.0" layoutY="255.0" mnemonicParsing="false" onAction="#gamesButtonAction" prefHeight="38.0" prefWidth="54.0" style="-fx-background-color: #D8F0EE;">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imageAndicon/Icon/games.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="addWord" layoutX="329.0" layoutY="324.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="54.0" style="-fx-background-color: #D8F0EE;">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imageAndicon/Icon/plus.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Text layoutX="429.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" wrappingWidth="63.13671875" />
+      <Text layoutX="450.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Word" />
    </children>
 </AnchorPane>
