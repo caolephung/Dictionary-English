@@ -44,7 +44,7 @@
             <Image url="@imageAndicon/Icon/with.png" />
          </image>
       </ImageView>
-      <Button fx:id="search" layoutX="328.0" layoutY="137.0" mnemonicParsing="false" onAction="#searchButtonAction" prefHeight="29.0" prefWidth="54.0" style="-fx-background-color: #D8F0EE;">
+      <Button fx:id="search" layoutX="328.0" layoutY="137.0" mnemonicParsing="false" onAction="#TranslateButtonAction" prefHeight="29.0" prefWidth="54.0" style="-fx-background-color: #D8F0EE;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -62,7 +62,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Text layoutX="411.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" wrappingWidth="109.87499803304672">
+      <Text layoutX="411.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Translate" wrappingWidth="109.87499803304672">
          <font>
             <Font size="25.0" />
          </font>

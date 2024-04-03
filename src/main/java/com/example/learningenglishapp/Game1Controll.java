@@ -33,7 +33,7 @@ public class Game1Controll {
     }
 
     @FXML
-    private void SoundButtonAction(ActionEvent event) {
+    private void CorrectButtonAction(ActionEvent event) {
         // Đường dẫn đến file âm thanh
         String path = "src/main/resources/com/example/learningenglishapp/Sound/Bomman.mp3";
         Media media = new Media(new File(path).toURI().toString());
@@ -44,4 +44,18 @@ public class Game1Controll {
         // Bắt đầu phát âm thanh
         mediaPlayer.play();
     }
+
+    @FXML
+    private void InCorrectButtonAction(ActionEvent event) {
+        // Đường dẫn đến file âm thanh
+        String path = "src/main/resources/com/example/learningenglishapp/Sound/Cau-noi-do-ngu-do-an-hai-mp3-www_tiengdong_com.mp3";
+        Media media = new Media(new File(path).toURI().toString());
+
+        // Tạo một đối tượng MediaPlayer với đối tượng Media
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+        // Bắt đầu phát âm thanh
+        mediaPlayer.play();
+    }
+
 }
