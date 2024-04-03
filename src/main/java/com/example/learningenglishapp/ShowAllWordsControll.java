@@ -4,7 +4,11 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SplitMenuButton;
@@ -15,6 +19,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+import javafx.scene.text.Text;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -23,15 +29,26 @@ import java.util.Map;
 
 public class ShowAllWordsControll {
     private static String DATA_FILE_PATH = "data/E_V.txt";
-    private static final String SPLITTING_CHARACTERS = "<html>";
-    private Map<String, Word> data = new HashMap<>();
 
+    private static final String SPLITTING_CHARACTERS = "<html>";
+    private Map<String, Word> data_E_V = new HashMap<>();
+    private Map<String, Word> data_V_E = new HashMap<>();
+    private Map<String, Word> data = new HashMap<>();
 
     @FXML
     private AnchorPane Screen;
 
     @FXML
     private TextField Searching;
+
+    @FXML
+    private Button swap;
+
+    @FXML
+    private Text source;
+
+    @FXML
+    private Text target;
 
     @FXML
     private ImageView iconSearch;
@@ -137,6 +154,7 @@ public class ShowAllWordsControll {
 
     public void readData() throws IOException {
         FileReader fis = new FileReader(DATA_FILE_PATH);
+
         BufferedReader br = new BufferedReader(fis);
         String line;
         while ((line = br.readLine()) != null) {
@@ -148,6 +166,39 @@ public class ShowAllWordsControll {
         }
         fis.close();
         br.close();
+    }
+
+    @FXML
+    private void BackButtonActionn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Welcome_view.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void swapButtonAction() {
+        if (source.getText().equals("EN")) {
+            source.setText("VI");
+            target.setText("EN");
+            DATA_FILE_PATH = "data/V_E.txt";
+            data_E_V = data;
+            data = data_V_E;
+            initialize();
+        } else if (source.getText().equals("VI")) {
+            source.setText("EN");
+            target.setText("VI");
+            DATA_FILE_PATH = "data/E_V.txt";
+            data_V_E = data;
+            data = data_E_V;
+            initialize();
+        }
     }
 }
 
