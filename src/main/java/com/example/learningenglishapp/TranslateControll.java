@@ -25,13 +25,30 @@ public class TranslateControll {
     private Text target;
 
     @FXML
-    private void translateText() {
-        String inputText = inputTextField.getText();
-        String sourceLanguage = "en"; // Ngôn ngữ nguồn (ví dụ: tiếng Anh)
-        String targetLanguage = "vi"; // Ngôn ngữ đích (ví dụ: tiếng Việt)
+    private Button swapButton;
 
+    @FXML
+    private static final String EN_LANG = "en";
+
+    @FXML
+    private static final String VI_LANG = "vi";
+
+    @FXML
+    private String sourceLanguage = EN_LANG;
+    @FXML
+    private String targetLanguage = VI_LANG;
+
+    @FXML
+    private void initialize(String sourceLanguage, String targetLanguage) {
+        this.sourceLanguage = sourceLanguage;
+        this.targetLanguage = targetLanguage;
+    }
+
+    @FXML
+    private void translateText() {
+        String input = inputTextField.getText();
         // Gọi hàm translateText từ TranslateAPI để dịch văn bản
-        String translatedText = TranslateAPI.translateText(inputText, sourceLanguage, targetLanguage);
+        String translatedText = TranslateAPI.translateText(input, sourceLanguage, targetLanguage);
 
         // Hiển thị văn bản dịch trong outputTextArea
         outputText.setText(translatedText);
@@ -42,11 +59,16 @@ public class TranslateControll {
         if(source.getText().equals("EN")) {
             source.setText("VI");
             target.setText("EN");
+            initialize(VI_LANG, EN_LANG);
+            inputTextField.setText(outputText.getText());
+            translateText();
+
         } else if(source.getText().equals("VI")) {
             source.setText("EN");
             target.setText("VI");
+            initialize(EN_LANG, VI_LANG);
+            inputTextField.setText(outputText.getText());
+            translateText();
         }
-
-
     }
 }
