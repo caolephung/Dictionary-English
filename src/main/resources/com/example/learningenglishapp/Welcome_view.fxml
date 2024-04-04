@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.WelcomeControll">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.WelcomeControll">
    <children>
       <ImageView fitHeight="149.0" fitWidth="140.0" layoutX="59.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,36 +19,11 @@
             <Image url="@imageAndicon/Icon/route.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="110.0" fitWidth="139.0" layoutX="447.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imageAndicon/Icon/Logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="41.0" layoutX="259.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imageAndicon/Icon/logo2.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="58.0" fitWidth="119.0" layoutX="310.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imageAndicon/Icon/Learning.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="140.0" layoutX="234.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imageAndicon/Icon/English.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="47.0" fitWidth="92.0" layoutX="355.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imageAndicon/Icon/with.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="search" layoutX="328.0" layoutY="137.0" mnemonicParsing="false" onAction="#TranslateButtonAction" prefHeight="29.0" prefWidth="54.0" style="-fx-background-color: #D8F0EE;">
+      <Button fx:id="search" layoutX="329.0" layoutY="139.0" mnemonicParsing="false" onAction="#TranslateButtonAction" prefHeight="30.0" prefWidth="54.0" style="-fx-background-color: #D8F0EE;">
          <graphic>
-            <ImageView fitHeight="30.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="27.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imageAndicon/Icon/loupe.png" />
+                  <Image url="@imageAndicon/Icon/traidatbu.png" />
                </image>
             </ImageView>
          </graphic>

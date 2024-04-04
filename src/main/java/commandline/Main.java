@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args) throws IOException {
         Dictionary dictionary = new Dictionary();
-        dictionary.addWord("Hello", "Xin chaoo");
+        dictionary.addWord("Hello", "Xin chao");
         dictionary.addWord("Rabbit", "Con tho");
         dictionary.addWord("Pig", "Con lon");
         dictionary.addWord("Bird", "Con cu");
