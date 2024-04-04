@@ -8,13 +8,5 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.TranslateControll">
    <children>
-      <TextField fx:id="inputTextField" layoutX="150.0" layoutY="31.0" onAction="#translateText" />
-      <TextArea fx:id="outputText" layoutX="118.0" layoutY="75.0" prefHeight="62.0" prefWidth="191.0" />
-      <Text fx:id="source" layoutX="411.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EN" />
-      <Text fx:id="target" layoutX="415.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VI" />
-      <Button fx:id="swapButton" layoutX="403.0" layoutY="69.0" mnemonicParsing="false" onAction="#swapButtonAction" text="Swap" />
-      <Button layoutX="38.0" layoutY="19.0" mnemonicParsing="false" onAction="#BackButtonAction" text="Back" />
-      <Button layoutX="309.0" layoutY="31.0" mnemonicParsing="false" onAction="#voiceSourceButton" text="voice" />
-      <Button layoutX="316.0" layoutY="82.0" mnemonicParsing="false" onAction="#voiceTargetButton" text="voice" />
    </children>
 </AnchorPane>
