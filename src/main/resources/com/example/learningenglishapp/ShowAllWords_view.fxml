@@ -59,6 +59,6 @@
             </HBox>
          </children>
       </VBox>
-      <Button layoutX="32.0" layoutY="18.0" mnemonicParsing="false" onAction="#BackButtonActionn" text="Back" />
+      <Button layoutX="32.0" layoutY="18.0" mnemonicParsing="false" onAction="#BackButtonAction" text="Back" />
    </children>
 </AnchorPane>

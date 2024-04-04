@@ -7,6 +7,7 @@ module com.example.learningenglishapp {
     requires javafx.web;
     requires javafx.media;
     requires json.simple;
+    requires freetts;
 
     opens com.example.learningenglishapp to javafx.fxml;
     exports com.example.learningenglishapp;

@@ -2,6 +2,7 @@ package commandline;
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class DictionaryCommandline {
     private DictionaryManagement dictionaryManagement;
@@ -16,16 +17,18 @@ public class DictionaryCommandline {
 
     /** Hiển thi từ điển. */
     public void showAllWords(){
+        TreeMap<String, String> DictionarySorted = new TreeMap<>(dictionaryManagement.dictionary.getWords());
+
         // Lấy độ dài của từ dài nhất
         int maxlength = 0;
-        for (String word : dictionaryManagement.dictionary.getWords().keySet()) {
+        for (String word : DictionarySorted.keySet()) {
             maxlength = Math.max(maxlength, word.length());
         }
 
         int cnt = 1;
         System.out.printf("No     | %-" + maxlength + "s| %s\n", "English", "Vietnamese");
-        for(String key : dictionaryManagement.dictionary.getWords().keySet()) {
-            System.out.printf("%-7d| %-" + maxlength + "s| %s\n", cnt, key, dictionaryManagement.dictionary.getWords().get(key));
+        for(String key : DictionarySorted.keySet()) {
+            System.out.printf("%-7d| %-" + maxlength + "s| %s\n", cnt, key, DictionarySorted.get(key));
             cnt++;
         }
 
