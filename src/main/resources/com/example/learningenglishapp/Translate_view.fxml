@@ -13,5 +13,6 @@
       <Text fx:id="source" layoutX="411.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EN" />
       <Text fx:id="target" layoutX="415.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VI" />
       <Button fx:id="swapButton" layoutX="403.0" layoutY="69.0" mnemonicParsing="false" onAction="#swapButtonAction" text="Swap" />
+      <Button layoutX="38.0" layoutY="19.0" mnemonicParsing="false" onAction="#BackButtonAction" text="Back" />
    </children>
 </AnchorPane>

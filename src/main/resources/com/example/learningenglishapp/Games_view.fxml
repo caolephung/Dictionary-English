@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.GamesControll">
    <children>
       <VBox layoutY="70.0" prefHeight="330.0" prefWidth="600.0">
@@ -36,6 +35,6 @@
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="Back" layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackButtoActionn" text="Back" />
+      <Button fx:id="Back" layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackButtonAction" text="Back" />
    </children>
 </AnchorPane>

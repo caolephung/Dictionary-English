@@ -22,7 +22,6 @@ public class Dictionary {
     public void addWord(String word, String explain){
         words.put(word, explain);
     }
-
 }
 
 
