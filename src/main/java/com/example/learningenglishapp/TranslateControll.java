@@ -1,12 +1,15 @@
 package com.example.learningenglishapp;
 
-
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
@@ -67,15 +70,19 @@ public class TranslateControll {
             source.setText("VI");
             target.setText("EN");
             initialize(VI_LANG, EN_LANG);
-            inputTextField.setText(outputText.getText());
-            translateText();
+            if(!outputText.getText().isEmpty()) {
+                inputTextField.setText(outputText.getText());
+                translateText();
+            }
 
         } else if(source.getText().equals("VI")) {
             source.setText("EN");
             target.setText("VI");
             initialize(EN_LANG, VI_LANG);
-            inputTextField.setText(outputText.getText());
-            translateText();
+            if(!outputText.getText().isEmpty()) {
+                inputTextField.setText(outputText.getText());
+                translateText();
+            }
         }
     }
 
@@ -91,5 +98,22 @@ public class TranslateControll {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void textToSpeech(String text) {
+        Media media = new Media("tts:/" + text);
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
+    }
+
+    @FXML
+    private void voiceSourceButton() {
+        textToSpeech(inputTextField.getText());
+    }
+
+    @FXML
+    private void voiceTargetButton() {
+        textToSpeech(outputText.getText());
     }
 }

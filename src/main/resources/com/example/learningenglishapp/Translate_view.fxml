@@ -14,5 +14,7 @@
       <Text fx:id="target" layoutX="415.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VI" />
       <Button fx:id="swapButton" layoutX="403.0" layoutY="69.0" mnemonicParsing="false" onAction="#swapButtonAction" text="Swap" />
       <Button layoutX="38.0" layoutY="19.0" mnemonicParsing="false" onAction="#BackButtonAction" text="Back" />
+      <Button layoutX="309.0" layoutY="31.0" mnemonicParsing="false" onAction="#voiceSourceButton" text="voice" />
+      <Button layoutX="316.0" layoutY="82.0" mnemonicParsing="false" onAction="#voiceTargetButton" text="voice" />
    </children>
 </AnchorPane>
