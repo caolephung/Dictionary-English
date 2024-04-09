@@ -169,7 +169,7 @@ public class ShowAllWordsControll {
     }
 
     @FXML
-    private void BackButtonActionn(ActionEvent event) {
+    private void BackButtonAction(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Welcome_view.fxml"));
             Parent root = loader.load();

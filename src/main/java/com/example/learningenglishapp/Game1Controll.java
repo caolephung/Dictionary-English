@@ -19,7 +19,7 @@ public class Game1Controll {
     private Button Back;
 
     @FXML
-    private void BackButtoActionn(ActionEvent event) {
+    private void BackButtonAction(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Games_view.fxml"));
             Parent root = loader.load();

@@ -8,10 +8,10 @@ public class Main {
         Dictionary dictionary = new Dictionary();
         dictionary.addWord("Hello", "Xin chao");
         dictionary.addWord("Rabbit", "Con tho");
-        dictionary.addWord("Pig", "Con lon");
-        dictionary.addWord("Bird", "Con cu");
-        dictionary.addWord("What your name ?", "May ten la gi ?");
-        dictionary.addWord("Where are you from ?", "May den tu dau ?");
+        dictionary.addWord("Pig", "Con heo");
+        dictionary.addWord("Bird", "Con chim");
+        dictionary.addWord("What your name ?", "Ban ten la gi ?");
+        dictionary.addWord("Where are you from ?", "Ban den tu dau ?");
 
         DictionaryCommandline dictionaryCommandline = new DictionaryCommandline(dictionary);
         dictionaryCommandline.dictionaryAdvanced();

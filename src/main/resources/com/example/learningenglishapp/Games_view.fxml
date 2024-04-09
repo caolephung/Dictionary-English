@@ -8,8 +8,8 @@
 <?import javafx.scene.text.Font?>
 
 
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fffefe;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
       <Label layoutX="28.0" layoutY="135.0" prefHeight="250.0" prefWidth="253.0" style="-fx-background-color: #ecff82;" styleClass="Style" stylesheets="@Style.css" />
       <Label layoutX="322.0" layoutY="135.0" prefHeight="250.0" prefWidth="253.0" style="-fx-background-color: #ecff82;" styleClass="Style" stylesheets="@Style.css">
          <font>
@@ -54,5 +54,5 @@
             <Font size="24.0" />
          </font>
       </Label>
-   </children>
+
 </AnchorPane>
