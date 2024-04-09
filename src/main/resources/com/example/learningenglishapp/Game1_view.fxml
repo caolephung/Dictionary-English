@@ -15,11 +15,14 @@
       <RadioButton fx:id="option4" layoutX="351.0" layoutY="307.0" mnemonicParsing="false" text="option D" />
       <RadioButton fx:id="option1" layoutX="101.0" layoutY="243.0" mnemonicParsing="false" text="option A" />
       <RadioButton fx:id="option2" layoutX="351.0" layoutY="243.0" mnemonicParsing="false" text="option B" />
-      <Button layoutX="27.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #ecff82;" styleClass="Style" stylesheets="@Style.css">
+      <Button layoutX="-10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="67.0" styleClass="Style" stylesheets="@Style.css">
+         <font>
+            <Font size="18.0" />
+         </font>
          <graphic>
-            <ImageView fx:id="buttonHome" fitHeight="36.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imageAndicon/Icon/home1.png" />
+                  <Image url="@imageAndicon/Icon/muiten.png" />
                </image>
             </ImageView>
          </graphic>
