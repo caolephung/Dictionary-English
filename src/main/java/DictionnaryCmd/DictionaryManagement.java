@@ -1,18 +1,29 @@
-package commandline;
+package DictionnaryCmd;
 
 import java.io.*;
-import java.util.Map;
 import java.util.Scanner;
 
 public class DictionaryManagement {
     protected Dictionary dictionary = new Dictionary();
 
+    protected TrieDictionary trieDictionary = new TrieDictionary();
+
     public DictionaryManagement(Dictionary dictionary) {
-        this.dictionary = dictionary;
+        this.dictionary.addAll(dictionary);
+        for(Word word : dictionary) {
+            trieDictionary.addWord(word.getWord_target(), word.getWord_explain());
+        }
     }
 
     public DictionaryManagement() {
     }
+
+//    /** Chuyển dictionary từ arraylist sang trie. */
+//    private void dictionaryToTriedictionary() {
+//        for(Word word : dictionary.getDictionary()) {
+//            trieDictionary.addWord(word.getWord_target(), word.getWord_explain());
+//        }
+//    }
 
     /**
      * Chỉnh sửa lại từ cho chuẩn
@@ -45,16 +56,18 @@ public class DictionaryManagement {
              * Nếu chưa tồn tại thì thêm vào
              * Nếu đã tồn tại thì mở ra nghĩa của từ đó và xác nhận thay đổi
              */
-            if(dictionary.getWords().containsKey(word)) {
+            if(!trieDictionary.searchWord(word).isEmpty()) {
                 System.out.println("The word \" " + word + " \" already exists");
-                System.out.println(word + ":" + dictionary.getWords().get(word));
+                System.out.println(word + ":" + trieDictionary.searchWord(word));
                 System.out.print("Do you want to change ? (0: no, 1: yes) : ");
                 int option = ip.nextInt();
                 if (option == 1) {
-                    dictionary.addWord(newWord);
+                    dictionary.add(newWord);
+                    trieDictionary.addWord(word, define);
                 }
             } else {
-                dictionary.addWord(newWord);
+                dictionary.add(newWord);
+                trieDictionary.addWord(word, define);
             }
         }
     }
@@ -69,7 +82,8 @@ public class DictionaryManagement {
             String word = fix(word_explain[0]);
             String explain = fix(word_explain[1]);
             Word newWord = new Word(word, explain);
-            dictionary.addWord(newWord);
+            dictionary.add(newWord);
+            trieDictionary.addWord(word, explain);
         }
         fs.close();
         bs.close();
@@ -81,8 +95,8 @@ public class DictionaryManagement {
         Scanner ip = new Scanner(System.in);
         String SearchWord = ip.nextLine();
         SearchWord = fix(SearchWord);
-        if(dictionary.getWords().containsKey(SearchWord)) {
-            System.out.println(SearchWord + " : " + dictionary.getWords().get(SearchWord));
+        if(!trieDictionary.searchWord(SearchWord).isEmpty()) {
+            System.out.println("Explain: " + trieDictionary.searchWord(SearchWord));
         } else {
             System.out.println("Not Found!");
         }
@@ -94,13 +108,13 @@ public class DictionaryManagement {
         Scanner ip = new Scanner(System.in);
         String word = ip.nextLine();
         word = fix(word);
-        if(dictionary.getWords().containsKey(word)) {
-            System.out.println(word + " : " + dictionary.getWords().get(word));
+        if(!trieDictionary.searchWord(word).isEmpty()) {
+            System.out.println(word + " : " + trieDictionary.searchWord(word));
             System.out.print("New explain: ");
             String newExplain = ip.nextLine();
             newExplain = fix(newExplain);
-            dictionary.getWords().put(word, newExplain);
-
+            dictionary.add(new DictionnaryCmd.Word(word, newExplain));
+            trieDictionary.addWord(word, newExplain);
         } else {
             System.out.println("Not Found!");
         }
@@ -112,8 +126,9 @@ public class DictionaryManagement {
         Scanner ip = new Scanner(System.in);
         String word = ip.nextLine();
         word = fix(word);
-        if(dictionary.getWords().containsKey(word)) {
-            dictionary.getWords().remove(word);
+        if(!trieDictionary.searchWord(word).isEmpty()) {
+            dictionary.remove(word);
+            trieDictionary.removeWord(word);
         } else {
             System.out.println("Not Found!");
         }
@@ -125,31 +140,34 @@ public class DictionaryManagement {
      * transform, transit, ...
      */
     public void dictionarySearch() {
-        Dictionary listWord = new Dictionary();
         System.out.print("Enter the start word: ");
         Scanner ip = new Scanner(System.in);
         String search = ip.nextLine();
-        for(String word : dictionary.getWords().keySet()) {
-            if (word.startsWith(search)) {
-                Word wordAdd = new Word(word, dictionary.getWords().get(word));
-                listWord.addWord(wordAdd);
+        search = fix(search);
+
+        Trie currentNode = trieDictionary.root;
+
+        for (int i = 0; i < search.length(); i++) {
+            char ch = search.charAt(i);
+            if (currentNode.getChildren().containsKey(ch)) {
+                currentNode = currentNode.getChildren().get(ch);
             }
         }
-        if (listWord.getWords().isEmpty()) {
+
+        if(currentNode == trieDictionary.root) {
             System.out.println("Not Found!");
-        } else {
-            DictionaryCommandline dictionaryCommandline = new DictionaryCommandline(listWord);
-            dictionaryCommandline.showAllWords();
+            return;
         }
 
+        print(currentNode, search, 20, 1);
     }
 
     /** Xuất dữ liệu từ điển hiện tại ra tệp. */
     public void dictionaryExportToFile(String path) throws IOException {
         FileWriter fw = new FileWriter(path);
         BufferedWriter bw = new BufferedWriter(fw);
-        for (Map.Entry<String, String> entry : dictionary.getWords().entrySet()) {
-            bw.write(entry.getKey() + ": " + entry.getValue());
+        for (Word word : dictionary.getDictionary()) {
+            bw.write(word.getWord_target() + ": " + word.getWord_explain());
             bw.newLine();
         }
         bw.close();
@@ -158,6 +176,17 @@ public class DictionaryManagement {
     /** Game. */
     public void dictionaryGame() {
         System.out.println("Start game!");
+    }
 
+
+    public void print(Trie node, String prefix, int maxlength, int cnt) {
+        if (node.isEndOfWord()) {
+            System.out.printf("%-7d| %-" + maxlength + "s| %s\n", cnt, prefix, node.getMeaning());
+            cnt++;
+        }
+        for (char ch : node.getChildren().keySet()) {
+            Trie childNode = node.getChildren().get(ch);
+            print(childNode, prefix + ch, maxlength, cnt);
+        }
     }
 }

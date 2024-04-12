@@ -1,8 +1,7 @@
-package commandline;
+package DictionnaryCmd;
 
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class DictionaryCommandline {
     private DictionaryManagement dictionaryManagement;
@@ -16,22 +15,11 @@ public class DictionaryCommandline {
     }
 
     /** Hiển thi từ điển. */
-    public void showAllWords(){
-        TreeMap<String, String> DictionarySorted = new TreeMap<>(dictionaryManagement.dictionary.getWords());
-
-        // Lấy độ dài của từ dài nhất
-        int maxlength = 0;
-        for (String word : DictionarySorted.keySet()) {
-            maxlength = Math.max(maxlength, word.length());
-        }
+    public void showAllWords(Trie node){
 
         int cnt = 1;
-        System.out.printf("No     | %-" + maxlength + "s| %s\n", "English", "Vietnamese");
-        for(String key : DictionarySorted.keySet()) {
-            System.out.printf("%-7d| %-" + maxlength + "s| %s\n", cnt, key, DictionarySorted.get(key));
-            cnt++;
-        }
-
+        System.out.printf("No     | %-" + 20 + "s| %s\n", "English", "Vietnamese");
+        dictionaryManagement.print(node, "", 20, 1);
     }
 
     public void dictionaryBasic() {
@@ -46,7 +34,7 @@ public class DictionaryCommandline {
                 dictionaryManagement.insertFromCommandline();
                 break;
             case 2:
-                showAllWords();
+                showAllWords(dictionaryManagement.trieDictionary.root);
                 break;
             case 0:
                 System.out.println("Goodbye!");
@@ -88,7 +76,7 @@ public class DictionaryCommandline {
                     dictionaryManagement.changeExplain();
                     break;
                 case 4:
-                    showAllWords();
+                    showAllWords(dictionaryManagement.trieDictionary.root);
                     break;
                 case 5:
                     dictionaryManagement.dictionaryLookup();
@@ -100,11 +88,11 @@ public class DictionaryCommandline {
                     dictionaryManagement.dictionaryGame();
                     break;
                 case 8:
-                    String pathIN = "src/main/java/commandline/inputFile.txt";
+                    String pathIN = "src/main/java/DataFile/inputFile.txt";
                     dictionaryManagement.insertFromFile(pathIN);
                     break;
                 case 9:
-                    String pathOUT = "src/main/java/commandline/outputFile.txt";
+                    String pathOUT = "src/main/java/DataFile/outputFile.txt";
                     dictionaryManagement.dictionaryExportToFile(pathOUT);
                     break;
                 default:
