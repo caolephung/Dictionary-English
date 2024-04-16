@@ -11,7 +11,8 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.Game1Controll">
    <children>
 
-       <Label layoutX="27.0" layoutY="180.0" prefHeight="218.0" prefWidth="540.0" style="-fx-background-color: #ecff82;" styleClass="Style" stylesheets="@Style.css" textFill="#c4b2b2" />
+      <Label layoutX="27.0" layoutY="180.0" prefHeight="218.0" prefWidth="540.0" style="-fx-background-color: #ecff82;" styleClass="Style" stylesheets="@Style.css" textFill="#c4b2b2" />
+
       <RadioButton fx:id="option3" layoutX="101.0" layoutY="307.0" mnemonicParsing="false" text="option C" />
       <RadioButton fx:id="option4" layoutX="351.0" layoutY="307.0" mnemonicParsing="false" text="option D" />
       <RadioButton fx:id="option1" layoutX="101.0" layoutY="243.0" mnemonicParsing="false" text="option A" />
@@ -58,6 +59,5 @@
             <Font size="18.0" />
          </font>
       </Button>
-
    </children>
 </AnchorPane>

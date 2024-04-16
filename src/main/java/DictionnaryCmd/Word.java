@@ -1,4 +1,4 @@
-package commandline;
+package DictionnaryCmd;
 
 public class Word{
     private String word_target;
@@ -22,3 +22,4 @@ public class Word{
         return word_explain;
     }
 }
+

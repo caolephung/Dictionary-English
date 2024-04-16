@@ -7,7 +7,8 @@ module com.example.learningenglishapp {
     requires javafx.web;
     requires javafx.media;
     requires json.simple;
-    requires freetts;
+    requires kotlin.stdlib;
+    requires java.desktop;
 
     opens com.example.learningenglishapp to javafx.fxml;
     exports com.example.learningenglishapp;

@@ -1,26 +1,32 @@
 package com.example.learningenglishapp;
 
-import com.sun.speech.freetts.Voice;
-import com.sun.speech.freetts.VoiceManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.text.Text;
-import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class TranslateControll {
 
     @FXML
-    private TextField inputTextField;
+    private ImageView Flag_source;
+
+    @FXML
+    private ImageView Flag_target;
+
+    @FXML
+    private TextArea inputText;
 
     @FXML
     private TextArea outputText;
@@ -29,10 +35,10 @@ public class TranslateControll {
     private Button translateButton;
 
     @FXML
-    private Text source;
+    private Label source;
 
     @FXML
-    private Text target;
+    private Label target;
 
     @FXML
     private Button swapButton;
@@ -56,7 +62,7 @@ public class TranslateControll {
 
     @FXML
     private void translateText() {
-        String input = inputTextField.getText();
+        String input = inputText.getText();
         // Gọi hàm translateText từ TranslateAPI để dịch văn bản
         String translatedText = TranslateAPI.translateText(input, sourceLanguage, targetLanguage);
 
@@ -64,28 +70,41 @@ public class TranslateControll {
         outputText.setText(translatedText);
     }
 
+    /** Hoán đổi vị trí 2 lá cờ. */
+    @FXML
+    private void swapFlag() {
+        Image tmp = Flag_source.getImage();
+        Flag_source.setImage(Flag_target.getImage());
+        Flag_target.setImage(tmp);
+    }
+
+    /** Hoán đổi English <-> Vietnamese. */
     @FXML
     private void swapButtonAction() {
-        if(source.getText().equals("EN")) {
-            source.setText("VI");
-            target.setText("EN");
+        if(source.getText().equals("English")) {
+            source.setText("Vietnamese");
+            target.setText("English");
+            swapFlag();
             initialize(VI_LANG, EN_LANG);
             if(!outputText.getText().isEmpty()) {
-                inputTextField.setText(outputText.getText());
+                inputText.setText(outputText.getText());
                 translateText();
             }
 
-        } else if(source.getText().equals("VI")) {
-            source.setText("EN");
-            target.setText("VI");
+        } else if(source.getText().equals("Vietnamese")) {
+            source.setText("English");
+            target.setText("Vietnamese");
+            swapFlag();
             initialize(EN_LANG, VI_LANG);
             if(!outputText.getText().isEmpty()) {
-                inputTextField.setText(outputText.getText());
+                inputText.setText(outputText.getText());
                 translateText();
             }
         }
     }
 
+
+    /** Quay trở lại welcome. */
     @FXML
     private void BackButtonAction(ActionEvent event) {
         try {
@@ -100,20 +119,23 @@ public class TranslateControll {
         }
     }
 
-    @FXML
-    private void textToSpeech(String text) {
-        Media media = new Media("tts:/" + text);
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
-    }
 
-    @FXML
-    private void voiceSourceButton() {
-        textToSpeech(inputTextField.getText());
-    }
+    /** Đọc file âm thanh. */
+//    @FXML
+//    private void voiceSourceButton(String sourceLanguage) {
+//        if(sourceLanguage.equals("English")) {
+//            Sound.textToSpeech(inputText.getText());
+//        } else if(sourceLanguage.equals("Vietnamese")) {
+//            Sound.textToSpeech(inputText.getText());
+//        }
+//    }
 
-    @FXML
-    private void voiceTargetButton() {
-        textToSpeech(outputText.getText());
-    }
+//    @FXML
+//    private void voiceTargetButton(String targetLanguage) {
+//        if(targetLanguage.equals("Vietnamese")) {
+//            Sound.textToSpeech(outputText.getText());
+//        } else if(targetLanguage.equals("English")) {
+//            Sound.textToSpeech(outputText.getText());
+//        }
+//    }
 }

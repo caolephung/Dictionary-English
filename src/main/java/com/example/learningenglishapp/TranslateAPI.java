@@ -16,18 +16,14 @@ public class TranslateAPI {
 
     public static String translateText(String text, String source, String target) {
         try {
-            // Mã hóa văn bản để tránh lỗi khi chứa các ký tự đặc biệt
             String encodedText = URLEncoder.encode(text, "UTF-8");
 
-            // Tạo URL cho API với các tham số cần thiết
             String apiUrl = String.format("%s?q=%s&langpair=%s|%s", API, encodedText, source, target);
             URL url = new URL(apiUrl);
 
-            // Mở kết nối HTTP
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
-            // Đọc kết quả từ kết nối
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuilder response = new StringBuilder();
             String line;
