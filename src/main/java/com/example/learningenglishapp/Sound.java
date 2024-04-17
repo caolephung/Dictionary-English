@@ -1,5 +1,6 @@
 package com.example.learningenglishapp;
 
+/*
 public class Sound {
     public static void textToSpeech(String text) {
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
@@ -15,3 +16,4 @@ public class Sound {
     }
 }
 
+*/

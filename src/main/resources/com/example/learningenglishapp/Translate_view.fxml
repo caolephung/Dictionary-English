@@ -67,8 +67,8 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="28.0" layoutY="43.0" mnemonicParsing="false" onAction="#voiceSourceButton" text="âm thanh" />
-            <Button layoutX="567.0" layoutY="43.0" mnemonicParsing="false" onAction="#voiceTargetButton" text="âm thanh" />
+            <Button layoutX="28.0" layoutY="43.0" mnemonicParsing="false" text="âm thanh" />
+            <Button layoutX="567.0" layoutY="43.0" mnemonicParsing="false" text="âm thanh" />
          </children>
       </Pane>
    </children>

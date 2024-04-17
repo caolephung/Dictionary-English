@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class DictionaryManagement {
     protected Dictionary dictionary = new Dictionary();
 
+    private IOData_SQL IO = new IOData_SQL();
+
     protected TrieDictionary trieDictionary = new TrieDictionary();
 
     public DictionaryManagement(Dictionary dictionary) {
@@ -16,7 +18,12 @@ public class DictionaryManagement {
     }
 
     public DictionaryManagement() {
+        this.dictionary.addAll(IO.getAllWords());
+        for(Word word : dictionary) {
+            trieDictionary.addWord(word.getWord_target(), word.getWord_explain());
+        }
     }
+
 
 //    /** Chuyển dictionary từ arraylist sang trie. */
 //    private void dictionaryToTriedictionary() {
@@ -64,10 +71,12 @@ public class DictionaryManagement {
                 if (option == 1) {
                     dictionary.add(newWord);
                     trieDictionary.addWord(word, define);
+                    IO.updateWord(word, define);
                 }
             } else {
                 dictionary.add(newWord);
                 trieDictionary.addWord(word, define);
+                IO.addWord(word, define);
             }
         }
     }
@@ -84,6 +93,7 @@ public class DictionaryManagement {
             Word newWord = new Word(word, explain);
             dictionary.add(newWord);
             trieDictionary.addWord(word, explain);
+            IO.addWord(word, explain);
         }
         fs.close();
         bs.close();
@@ -115,6 +125,7 @@ public class DictionaryManagement {
             newExplain = fix(newExplain);
             dictionary.add(new DictionnaryCmd.Word(word, newExplain));
             trieDictionary.addWord(word, newExplain);
+            IO.updateWord(word, newExplain);
         } else {
             System.out.println("Not Found!");
         }
@@ -129,6 +140,7 @@ public class DictionaryManagement {
         if(!trieDictionary.searchWord(word).isEmpty()) {
             dictionary.remove(word);
             trieDictionary.removeWord(word);
+            IO.removeWord(word);
         } else {
             System.out.println("Not Found!");
         }

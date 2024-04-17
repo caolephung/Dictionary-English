@@ -28,11 +28,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ShowAllWordsControll {
-    private static String DATA_FILE_PATH = "data/E_V.txt";
-
     private static final String SPLITTING_CHARACTERS = "<html>";
-    private Map<String, Word> data_E_V = new HashMap<>();
-    private Map<String, Word> data_V_E = new HashMap<>();
+
     private Map<String, Word> data = new HashMap<>();
 
     @FXML
@@ -89,17 +86,22 @@ public class ShowAllWordsControll {
     @FXML
     private WebView Define;
 
-    @FXML
-    private void initialize() {
+    private void initialize(String path) {
         try {
             WordAndDefine();
-            readData();
+            readData(path);
             loadWordList();
             // Thiết lập sự kiện lắng nghe những thay đổi của Searching để liên tục cập nhật
             setUpSearchListener();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void initialize() {
+        String initialPath = "data/E_V.txt";
+        initialize(initialPath);
     }
 
     @FXML
@@ -152,7 +154,9 @@ public class ShowAllWordsControll {
         this.AllWord.getItems().addAll(data.keySet());
     }
 
-    public void readData() throws IOException {
+    public void readData(String DATA_FILE_PATH) throws IOException {
+        data.clear();
+        AllWord.getItems().clear();
         FileReader fis = new FileReader(DATA_FILE_PATH);
 
         BufferedReader br = new BufferedReader(fis);
@@ -183,21 +187,15 @@ public class ShowAllWordsControll {
     }
 
     @FXML
-    private void swapButtonAction() {
+    private void swapButtonAction() throws IOException {
         if (source.getText().equals("EN")) {
             source.setText("VI");
             target.setText("EN");
-            DATA_FILE_PATH = "data/V_E.txt";
-            data_E_V = data;
-            data = data_V_E;
-            initialize();
+            initialize("data/V_E.txt");
         } else if (source.getText().equals("VI")) {
             source.setText("EN");
             target.setText("VI");
-            DATA_FILE_PATH = "data/E_V.txt";
-            data_V_E = data;
-            data = data_E_V;
-            initialize();
+            initialize("data/E_V.txt");
         }
     }
 }
