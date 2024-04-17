@@ -187,7 +187,60 @@ public class DictionaryManagement {
 
     /** Game. */
     public void dictionaryGame() {
-        System.out.println("Start game!");
+        System.out.print("[0] Game 1\n" +
+                        "[1] Game 2\n");
+                        while(true) {
+            System.out.print("Your action: ");
+            Scanner ip = new Scanner(System.in);
+            int action = ip.nextInt();
+            if(action == 1) {
+                System.out.println("Start game!");
+                ListQuestion listQuestion = new ListQuestion();
+                listQuestion.insertFromCommandline();
+                for (int i =0 ; i< listQuestion.size(); i++) {
+                    Question q = listQuestion.get(i);
+                    System.out.println(q.getQuestion());
+                    System.out.println(q.getOption().get(0));
+                    System.out.println(q.getOption().get(1));
+                    System.out.println(q.getOption().get(2));
+                    System.out.println(q.getOption().get(3));
+                    Scanner sc0 = new Scanner(System.in);
+                    String c = sc0.next();
+                    if (q.getAnswer().equals("A")) {
+                        if (c.equals("A")) {
+                            System.out.println("Exactly!");
+                        } else {
+                            System.out.println("Wrong!");
+                        }
+                    } else if (q.getAnswer().equals("B")) {
+                        if (c.equals("B")) {
+                            System.out.println("Exactly!");
+                        } else {
+                            System.out.println("Wrong!");
+                        }
+                    }else if (q.getAnswer().equals("C")) {
+                        if (c.equals("C")) {
+                            System.out.println("Exactly!");
+                        } else {
+                            System.out.println("Wrong!");
+                        }
+                    } else if (q.getAnswer().equals("D")) {
+                        if (c.equals("D")) {
+                            System.out.println("Exactly!");
+                        } else {
+                            System.out.println("Wrong!");
+                        }
+                    }
+                    Scanner sc1 = new Scanner(System.in);
+                    System.out.println("[1] Exit");
+                    System.out.println("[2] Do again");
+                    System.out.println("[3] Next question");
+                    int x = sc1.nextInt();
+                    if ( x == 1) break;
+                    else if (x == 2) i--;
+                }
+            }
+        }
     }
 
 

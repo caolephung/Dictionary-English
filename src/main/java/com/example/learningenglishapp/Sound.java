@@ -14,6 +14,10 @@ public class Sound {
             System.err.println("Not Found!");
         }
     }
+<<<<<<< HEAD
 }
 
 */
+=======
+}
+>>>>>>> b2bf5bd98ec9cb59cb389345c9cbf51ed8d590fa
