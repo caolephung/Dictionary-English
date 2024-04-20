@@ -9,10 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -28,12 +26,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ShowAllWordsControll {
-    private static String DATA_FILE_PATH = "data/E_V.txt";
-
     private static final String SPLITTING_CHARACTERS = "<html>";
-    private Map<String, Word> data_E_V = new HashMap<>();
-    private Map<String, Word> data_V_E = new HashMap<>();
+
     private Map<String, Word> data = new HashMap<>();
+
+    @FXML
+    private ImageView Flag_source;
+
+    @FXML
+    private ImageView Flag_target;
 
     @FXML
     private AnchorPane Screen;
@@ -45,10 +46,10 @@ public class ShowAllWordsControll {
     private Button swap;
 
     @FXML
-    private Text source;
+    private Label source;
 
     @FXML
-    private Text target;
+    private Label target;
 
     @FXML
     private ImageView iconSearch;
@@ -60,25 +61,10 @@ public class ShowAllWordsControll {
     private VBox VBoxMain;
 
     @FXML
-    private Pane AllButton;
-
-    @FXML
     private Button addWord;
 
     @FXML
     private Button search;
-
-    @FXML
-    private SplitMenuButton Games;
-
-    @FXML
-    private Button Game1;
-
-    @FXML
-    private Button Game2;
-
-    @FXML
-    private Button ListenAndRead;
 
     @FXML
     private HBox WordAndDefine;
@@ -89,17 +75,22 @@ public class ShowAllWordsControll {
     @FXML
     private WebView Define;
 
-    @FXML
-    private void initialize() {
+    private void initialize(String path) {
         try {
             WordAndDefine();
-            readData();
+            readData(path);
             loadWordList();
             // Thiết lập sự kiện lắng nghe những thay đổi của Searching để liên tục cập nhật
             setUpSearchListener();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void initialize() {
+        String initialPath = "data/E_V.txt";
+        initialize(initialPath);
     }
 
     @FXML
@@ -152,7 +143,9 @@ public class ShowAllWordsControll {
         this.AllWord.getItems().addAll(data.keySet());
     }
 
-    public void readData() throws IOException {
+    public void readData(String DATA_FILE_PATH) throws IOException {
+        data.clear();
+        AllWord.getItems().clear();
         FileReader fis = new FileReader(DATA_FILE_PATH);
 
         BufferedReader br = new BufferedReader(fis);
@@ -183,21 +176,24 @@ public class ShowAllWordsControll {
     }
 
     @FXML
-    private void swapButtonAction() {
-        if (source.getText().equals("EN")) {
-            source.setText("VI");
-            target.setText("EN");
-            DATA_FILE_PATH = "data/V_E.txt";
-            data_E_V = data;
-            data = data_V_E;
-            initialize();
-        } else if (source.getText().equals("VI")) {
-            source.setText("EN");
-            target.setText("VI");
-            DATA_FILE_PATH = "data/E_V.txt";
-            data_V_E = data;
-            data = data_E_V;
-            initialize();
+    private void swapFlag() {
+        Image tmp = Flag_source.getImage();
+        Flag_source.setImage(Flag_target.getImage());
+        Flag_target.setImage(tmp);
+    }
+
+    @FXML
+    private void swapButtonAction() throws IOException {
+        if (source.getText().equals("English")) {
+            source.setText("VietNamese");
+            target.setText("English");
+            swapFlag();
+            initialize("data/V_E.txt");
+        } else if (source.getText().equals("VietNamese")) {
+            source.setText("English");
+            target.setText("VietNamese");
+            swapFlag();
+            initialize("data/E_V.txt");
         }
     }
 }
