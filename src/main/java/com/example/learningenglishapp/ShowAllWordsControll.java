@@ -9,10 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -33,6 +31,12 @@ public class ShowAllWordsControll {
     private Map<String, Word> data = new HashMap<>();
 
     @FXML
+    private ImageView Flag_source;
+
+    @FXML
+    private ImageView Flag_target;
+
+    @FXML
     private AnchorPane Screen;
 
     @FXML
@@ -42,10 +46,10 @@ public class ShowAllWordsControll {
     private Button swap;
 
     @FXML
-    private Text source;
+    private Label source;
 
     @FXML
-    private Text target;
+    private Label target;
 
     @FXML
     private ImageView iconSearch;
@@ -57,25 +61,10 @@ public class ShowAllWordsControll {
     private VBox VBoxMain;
 
     @FXML
-    private Pane AllButton;
-
-    @FXML
     private Button addWord;
 
     @FXML
     private Button search;
-
-    @FXML
-    private SplitMenuButton Games;
-
-    @FXML
-    private Button Game1;
-
-    @FXML
-    private Button Game2;
-
-    @FXML
-    private Button ListenAndRead;
 
     @FXML
     private HBox WordAndDefine;
@@ -187,14 +176,23 @@ public class ShowAllWordsControll {
     }
 
     @FXML
+    private void swapFlag() {
+        Image tmp = Flag_source.getImage();
+        Flag_source.setImage(Flag_target.getImage());
+        Flag_target.setImage(tmp);
+    }
+
+    @FXML
     private void swapButtonAction() throws IOException {
-        if (source.getText().equals("EN")) {
-            source.setText("VI");
-            target.setText("EN");
+        if (source.getText().equals("English")) {
+            source.setText("VietNamese");
+            target.setText("English");
+            swapFlag();
             initialize("data/V_E.txt");
-        } else if (source.getText().equals("VI")) {
-            source.setText("EN");
-            target.setText("VI");
+        } else if (source.getText().equals("VietNamese")) {
+            source.setText("English");
+            target.setText("VietNamese");
+            swapFlag();
             initialize("data/E_V.txt");
         }
     }
