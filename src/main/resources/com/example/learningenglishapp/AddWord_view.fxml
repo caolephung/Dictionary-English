@@ -10,13 +10,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.AddWordControll">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.AddWordControll">
     <children>
         <HBox layoutX="-1.0" layoutY="79.0" prefHeight="367.0" prefWidth="641.0">
             <children>
-                <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Thêm từ" />
-                <TextArea prefHeight="347.0" prefWidth="440.0" promptText="Thêm dịch nghĩa" />
+                <TextArea fx:id="Word" prefHeight="200.0" prefWidth="200.0" promptText="Thêm từ" />
+                <TextArea fx:id="Explain" prefHeight="347.0" prefWidth="440.0" promptText="Thêm dịch nghĩa" />
             </children>
         </HBox>
         <Pane layoutX="81.0" layoutY="4.0" prefHeight="66.0" prefWidth="487.0" style="-fx-background-color: #ecff82;" styleClass="Style" stylesheets="@Style.css">
