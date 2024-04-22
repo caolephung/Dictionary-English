@@ -187,8 +187,8 @@ public class DictionaryManagement {
 
     /** Game. */
     public void dictionaryGame() {
-        System.out.print("[0] Game 1\n" +
-                        "[1] Game 2\n");
+        System.out.print("[1] Game 1\n" +
+                        "[2] Game 2\n");
         while(true) {
             System.out.print("Your action: ");
             Scanner ip = new Scanner(System.in);
@@ -197,47 +197,48 @@ public class DictionaryManagement {
                 System.out.println("Start game!");
                 ListQuestion listQuestion = new ListQuestion();
                 listQuestion.insertFromCommandline();
-                for (int i =0 ; i< listQuestion.size(); i++) {
+                for (int i = 0; i < listQuestion.size(); i++) {
                     Question q = listQuestion.get(i);
                     System.out.println(q.getQuestion());
                     System.out.println(q.getOption().get(0));
                     System.out.println(q.getOption().get(1));
                     System.out.println(q.getOption().get(2));
                     System.out.println(q.getOption().get(3));
-                    Scanner sc0 = new Scanner(System.in);
-                    String c = sc0.next();
+                    Scanner a0 = new Scanner(System.in);
+                    String o = a0.next();
                     if (q.getAnswer().equals("A")) {
-                        if (c.equals("A")) {
+                        if (o.equals("A")) {
                             System.out.println("Correct!");
                         } else {
                             System.out.println("Wrong!");
                         }
                     } else if (q.getAnswer().equals("B")) {
-                        if (c.equals("B")) {
+                        if (o.equals("B")) {
                             System.out.println("Correct!");
                         } else {
                             System.out.println("Wrong!");
                         }
                     }else if (q.getAnswer().equals("C")) {
-                        if (c.equals("C")) {
+                        if (o.equals("C")) {
                             System.out.println("Correct!");
                         } else {
                             System.out.println("Wrong!");
                         }
                     } else if (q.getAnswer().equals("D")) {
-                        if (c.equals("D")) {
+                        if (o.equals("D")) {
                             System.out.println("Correct!");
                         } else {
                             System.out.println("Wrong!");
                         }
                     }
-                    Scanner sc1 = new Scanner(System.in);
+                    Scanner a1 = new Scanner(System.in);
                     System.out.println("[1] Exit");
                     System.out.println("[2] Do again");
                     System.out.println("[3] Next question");
-                    int x = sc1.nextInt();
-                    if (x == 1) dictionaryGame();
-                    else if (x == 2) i--;
+                    System.out.print("Your action: ");
+                    int c = a1.nextInt();
+                    if (c == 1) return;
+                    else if (c == 2) i--;
                 }
             }
         }
