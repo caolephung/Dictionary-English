@@ -177,7 +177,7 @@ public class DictionaryManagement {
     public void dictionaryGame() {
         System.out.print("[0] Game 1\n" +
                         "[1] Game 2\n");
-                        while(true) {
+        while(true) {
             System.out.print("Your action: ");
             Scanner ip = new Scanner(System.in);
             int action = ip.nextInt();
@@ -196,25 +196,25 @@ public class DictionaryManagement {
                     String c = sc0.next();
                     if (q.getAnswer().equals("A")) {
                         if (c.equals("A")) {
-                            System.out.println("Exactly!");
+                            System.out.println("Correct!");
                         } else {
                             System.out.println("Wrong!");
                         }
                     } else if (q.getAnswer().equals("B")) {
                         if (c.equals("B")) {
-                            System.out.println("Exactly!");
+                            System.out.println("Correct!");
                         } else {
                             System.out.println("Wrong!");
                         }
                     }else if (q.getAnswer().equals("C")) {
                         if (c.equals("C")) {
-                            System.out.println("Exactly!");
+                            System.out.println("Correct!");
                         } else {
                             System.out.println("Wrong!");
                         }
                     } else if (q.getAnswer().equals("D")) {
                         if (c.equals("D")) {
-                            System.out.println("Exactly!");
+                            System.out.println("Correct!");
                         } else {
                             System.out.println("Wrong!");
                         }
@@ -224,7 +224,7 @@ public class DictionaryManagement {
                     System.out.println("[2] Do again");
                     System.out.println("[3] Next question");
                     int x = sc1.nextInt();
-                    if ( x == 1) break;
+                    if (x == 1) dictionaryGame();
                     else if (x == 2) i--;
                 }
             }
