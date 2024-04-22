@@ -9,8 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import DictionnaryCmd.IOData_SQL;
+
 import java.io.IOException;
 
 public class AddWordControll {
@@ -21,30 +21,21 @@ public class AddWordControll {
     @FXML
     private TextArea Explain;
 
+    private IOData_SQL dataSql = new IOData_SQL();
 
-    private void addWordToDictionary(String PATH) {
+    @FXML
+    private void addWordControll(ActionEvent event) {
         String word = Word.getText().trim();
         String explanation = Explain.getText().trim();
 
         if (!word.isEmpty() && !explanation.isEmpty()) {
-            String formattedWord = formatWord(word, explanation);
-
-            // Write the formatted word to the text file
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(PATH, true))) {
-                writer.write(formattedWord);
-                writer.newLine();
-                writer.flush();
-                clearFields();
-            } catch (IOException e) {
-                System.out.println("An error occurred while adding word to dictionary: " + e.getMessage());
-            }
+            explanation = formatWord(word, explanation);
+            dataSql.addWord(word, explanation);
+            clearFields();
+            System.out.println("Thêm từ thành công.");
         } else {
-            System.out.println("Please enter both word and explanation.");
+            System.out.println("Vui lòng nhập cả từ và giải nghĩa.");
         }
-    }
-
-    private String formatWord(String word, String explanation) {
-        return String.format("<html><i>%s</i><br/><ul><li><font color='#cc0000'><b>%s</b></font></li></ul></html>", word, explanation);
     }
 
     private void clearFields() {
@@ -52,6 +43,9 @@ public class AddWordControll {
         Explain.clear();
     }
 
+    private String formatWord(String word, String explanation) {
+        return String.format("<html><i>%s</i><br/><ul><li><font color='#cc0000'><b>%s</b></font></li></ul></html>", word, explanation);
+    }
 
     @FXML
     private void BackButtonAction(ActionEvent event) {
@@ -67,3 +61,4 @@ public class AddWordControll {
         }
     }
 }
+

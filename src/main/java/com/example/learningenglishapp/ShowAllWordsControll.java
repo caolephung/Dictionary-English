@@ -37,9 +37,6 @@ public class ShowAllWordsControll {
     private ImageView Flag_target;
 
     @FXML
-    private AnchorPane Screen;
-
-    @FXML
     private TextField Searching;
 
     @FXML
