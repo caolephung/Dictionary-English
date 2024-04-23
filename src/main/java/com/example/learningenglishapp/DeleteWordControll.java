@@ -18,7 +18,16 @@ public class DeleteWordControll {
     @FXML
     private TextArea Word;
 
-    private IOData_SQL dataSql = new IOData_SQL();
+    private IOData_SQL dataSql;
+
+    @FXML
+//    public void initialize() {
+//        if () {
+//            dataSql = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryenglish");
+//        } else if () {
+//            dataSql = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryvnese");
+//        }
+//    }
 
     @FXML
     private void DeleteWordButtonAction(ActionEvent event) {

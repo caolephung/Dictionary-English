@@ -23,6 +23,7 @@ public class AddWordControll {
 
     private IOData_SQL dataSql;
 
+    @FXML
 //    public void initialize() {
 //        if () {
 //            dataSql = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryenglish");

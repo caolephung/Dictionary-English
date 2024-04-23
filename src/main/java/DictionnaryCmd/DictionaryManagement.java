@@ -241,6 +241,9 @@ public class DictionaryManagement {
                     else if (c == 2) i--;
                 }
             }
+            else if(action == 2) {
+                
+            }
         }
     }
 
