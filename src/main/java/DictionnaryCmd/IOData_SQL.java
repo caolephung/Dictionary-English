@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class IOData_SQL {
-    private String URL;
+    public String URL;
     private static final String USERNAME = "root";
     private static final String PASSWORD = "Mysql123.";
 
