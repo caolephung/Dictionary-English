@@ -21,7 +21,7 @@ public class DeleteWordControll {
     private IOData_SQL dataSql = new IOData_SQL();
 
     @FXML
-    private void deleteWordControll(ActionEvent event) {
+    private void DeleteWordButtonAction(ActionEvent event) {
         String wordToDelete = Word.getText().trim();
 
         if (!wordToDelete.isEmpty()) {

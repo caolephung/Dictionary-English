@@ -21,15 +21,23 @@ public class AddWordControll {
     @FXML
     private TextArea Explain;
 
-    private IOData_SQL dataSql = new IOData_SQL();
+    private IOData_SQL dataSql;
+
+//    public void initialize() {
+//        if () {
+//            dataSql = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryenglish");
+//        } else if () {
+//            dataSql = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryvnese");
+//        }
+//    }
 
     @FXML
-    private void addWordControll(ActionEvent event) {
+    private void AddWordButtonAction(ActionEvent event) {
         String word = Word.getText().trim();
         String explanation = Explain.getText().trim();
 
         if (!word.isEmpty() && !explanation.isEmpty()) {
-            explanation = formatWord(word, explanation);
+//            explanation = formatWord(word, explanation);
             dataSql.addWord(word, explanation);
             clearFields();
             System.out.println("Thêm từ thành công.");
