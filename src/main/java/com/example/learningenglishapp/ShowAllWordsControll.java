@@ -1,5 +1,6 @@
 package com.example.learningenglishapp;
 
+import DictionnaryCmd.IOData_SQL;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -22,6 +23,10 @@ import javafx.scene.text.Text;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,9 +42,6 @@ public class ShowAllWordsControll {
     private ImageView Flag_target;
 
     @FXML
-    private AnchorPane Screen;
-
-    @FXML
     private TextField Searching;
 
     @FXML
@@ -50,12 +52,6 @@ public class ShowAllWordsControll {
 
     @FXML
     private Label target;
-
-    @FXML
-    private ImageView iconSearch;
-
-    @FXML
-    private ImageView iconPencil;
 
     @FXML
     private VBox VBoxMain;
@@ -75,10 +71,21 @@ public class ShowAllWordsControll {
     @FXML
     private WebView Define;
 
-    private void initialize(String path) {
+    private IOData_SQL dataSql = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryenglish");
+
+    private void setURL(String source) {
+        if (source.equals("English")) {
+            dataSql = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryenglish");
+        } else if (source.equals("VietNamese")) {
+            dataSql = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryvnese");
+        }
+    }
+
+    @FXML
+    private void initialize() {
         try {
             WordAndDefine();
-            readData(path);
+            readData();
             loadWordList();
             // Thiết lập sự kiện lắng nghe những thay đổi của Searching để liên tục cập nhật
             setUpSearchListener();
@@ -87,11 +94,6 @@ public class ShowAllWordsControll {
         }
     }
 
-    @FXML
-    private void initialize() {
-        String initialPath = "data/E_V.txt";
-        initialize(initialPath);
-    }
 
     @FXML
     private void setUpSearchListener() {
@@ -143,22 +145,29 @@ public class ShowAllWordsControll {
         this.AllWord.getItems().addAll(data.keySet());
     }
 
-    public void readData(String DATA_FILE_PATH) throws IOException {
+    public void readData() throws IOException {
         data.clear();
         AllWord.getItems().clear();
-        FileReader fis = new FileReader(DATA_FILE_PATH);
+        try (Connection connection = DriverManager.getConnection(dataSql.URL, "root", "Mysql123.")) {
+            // Tạo một câu lệnh SQL
+            String query = "SELECT * FROM words";
 
-        BufferedReader br = new BufferedReader(fis);
-        String line;
-        while ((line = br.readLine()) != null) {
-            String[] parts = line.split(SPLITTING_CHARACTERS);
-            String word = parts[0];
-            String definition = SPLITTING_CHARACTERS + parts[1];
-            Word wordObj = new Word(word, definition);
-            data.put(word, wordObj);
+            // Tạo một đối tượng Statement để thực thi truy vấn
+            Statement statement = connection.createStatement();
+
+            // Thực thi truy vấn và nhận kết quả
+            ResultSet resultSet = statement.executeQuery(query);
+
+            // Lặp qua kết quả và in ra các dòng dữ liệu
+            while (resultSet.next()) {
+                String word = resultSet.getString("word");
+                String definition = resultSet.getString("definition");
+                Word wordObj = new Word(word, definition);
+                data.put(word, wordObj);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        fis.close();
-        br.close();
     }
 
     @FXML
@@ -188,12 +197,43 @@ public class ShowAllWordsControll {
             source.setText("VietNamese");
             target.setText("English");
             swapFlag();
-            initialize("data/V_E.txt");
+            setURL("VietNamese");
         } else if (source.getText().equals("VietNamese")) {
             source.setText("English");
             target.setText("VietNamese");
             swapFlag();
-            initialize("data/E_V.txt");
+            setURL("English");
+        }
+        initialize();
+    }
+
+    @FXML
+    private void AddWordButtonAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddWord_view.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void DeleteWordButtonAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Deleteword_view.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
