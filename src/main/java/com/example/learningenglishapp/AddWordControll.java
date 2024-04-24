@@ -53,7 +53,7 @@ public class AddWordControll {
         String explanation = Explain.getText().trim();
 
         if (!word.isEmpty() && !explanation.isEmpty()) {
-//            explanation = formatWord(word, explanation);
+            explanation = formatWord(word, explanation);
             dataSql.addWord(word, explanation);
             clearFields();
             System.out.println("Thêm từ thành công.");
