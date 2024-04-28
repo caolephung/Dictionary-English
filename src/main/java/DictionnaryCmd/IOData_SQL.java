@@ -13,9 +13,6 @@ public class IOData_SQL {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "Mysql123.";
 
-    public IOData_SQL() {
-
-    }
 
     public IOData_SQL(String URL) {
         this.URL = URL;
@@ -134,14 +131,14 @@ public class IOData_SQL {
     }
 
     public static void main(String[] args) {
-        String filePath = "data/V_E.txt";
+        String filePath = "src/main/java/DataFile/inputFile.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split("<html>");
+                String[] parts = line.split(" : ");
                 String word = parts[0];
-                String definition = "<html>" + parts[1];
-                IOData_SQL IO = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryvnese");
+                String definition = parts[1];
+                IOData_SQL IO = new IOData_SQL("jdbc:mysql://localhost:3306/dictionarycmd");
                 // Thêm từ vào cơ sở dữ liệu
                 IO.addWord(word, definition);
             }
@@ -152,7 +149,7 @@ public class IOData_SQL {
      }
 
 //    public static void main(String[] args) {
-//        IOData_SQL dataSql = new IOData_SQL();
-//        dataSql.searchWord("a");
+//        IOData_SQL dataSql = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryenglish");
+//        dataSql.searchWord("aba");
 //    }
 }
