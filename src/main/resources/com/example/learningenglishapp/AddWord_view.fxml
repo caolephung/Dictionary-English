@@ -8,11 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.AddWordControll">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.AddWordControll">
     <children>
-        <HBox layoutX="-1.0" layoutY="79.0" prefHeight="367.0" prefWidth="641.0">
+        <HBox layoutX="-1.0" layoutY="140.0" prefHeight="306.0" prefWidth="642.0">
             <children>
                 <TextArea fx:id="Word" prefHeight="200.0" prefWidth="200.0" promptText="Thêm từ" />
                 <TextArea fx:id="Explain" prefHeight="347.0" prefWidth="440.0" promptText="Thêm dịch nghĩa" />
@@ -45,5 +46,51 @@
                 </ImageView>
             </graphic>
         </Button>
+      <VBox layoutY="74.0" prefHeight="66.0" prefWidth="642.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #42d138;">
+               <children>
+                  <Button layoutX="34.0" layoutY="18.0" mnemonicParsing="false" onAction="#swapButtonAction" prefHeight="31.0" prefWidth="53.0" style="-fx-background-color: #42d138;">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imageAndicon/Icon/muiteen.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label fx:id="source" layoutX="127.0" layoutY="20.0" text="English">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="Flag_source" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imageAndicon/Icon/coanh.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label fx:id="target" layoutX="345.0" layoutY="20.0" text="VietNamese">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="Flag_target" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imageAndicon/Icon/co_vietnam.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <ImageView fitHeight="38.0" fitWidth="80.0" layoutX="241.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imageAndicon/Icon/ten.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
     </children>
 </AnchorPane>
