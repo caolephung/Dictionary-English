@@ -191,7 +191,7 @@ public class DictionaryManagement {
                 bw.newLine();
             }
 
-            System.out.println("Dữ liệu đã được xuất thành công vào file: " + path);
+            System.out.println("Dữ liệu đã được xuất thành công vào file: src/main/java/DataFile/outputFile.txt" );
         } catch (IOException e) {
             System.out.println("Đã xảy ra lỗi khi ghi vào file: " + e.getMessage());
             throw e;
