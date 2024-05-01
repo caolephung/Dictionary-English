@@ -92,7 +92,7 @@ public class DictionaryCommandline {
                     dictionaryManagement.insertFromFile(pathIN);
                     break;
                 case 9:
-                    String pathOUT = "src/main/java/DataFile/outputFile.txt";
+                    String pathOUT = "D:\\oop-Phung-Hung-Trieu\\src\\main\\java\\DataFile\\outputFile.txt";
                     dictionaryManagement.dictionaryExportToFile(pathOUT);
                     break;
                 default:
