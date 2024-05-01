@@ -196,7 +196,7 @@ public class DictionaryManagement {
             if(action == 1) {
                 System.out.println("Start game!");
                 ListQuestion listQuestion = new ListQuestion();
-                listQuestion.insertFromCommandline();
+                listQuestion.insertFromCMD();
                 for (int i = 0; i < listQuestion.size(); i++) {
                     Question q = listQuestion.get(i);
                     System.out.println(q.getQuestion());

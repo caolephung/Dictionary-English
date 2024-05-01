@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ListQuestion extends ArrayList<Question> {
     public static String path = "src/main/java/DataFile/Listquestion.txt";
-    public void insertFromCommandline() {
+    public void insertFromCMD() {
         File file = new File(path);
         try {
             List<String> allText = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
