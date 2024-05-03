@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="318.0" prefWidth="449.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppLearning.DeleteWordControll">
+<AnchorPane prefHeight="318.0" prefWidth="449.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppLearning.DeleteWordControll">
    <children>
       <Pane layoutX="97.0" layoutY="15.0" prefHeight="70.0" prefWidth="238.0" style="-fx-background-color: #ecff82;" styleClass="Style" stylesheets="@Style.css">
          <children>
@@ -25,7 +25,7 @@
          <graphic>
             <ImageView fitHeight="53.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Icon/muiten.png" />
+                  <Image url="@../Icon/muiten.png" />
                </image>
             </ImageView>
          </graphic>

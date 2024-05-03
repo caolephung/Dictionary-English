@@ -54,7 +54,7 @@
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Icon/muiteen.png" />
+                              <Image url="@../Icon/muiten%20(2).png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -66,7 +66,7 @@
                      <graphic>
                         <ImageView fx:id="Flag_source" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Icon/coanh.png" />
+                              <Image url="@../Icon/co_anh.png" />
                            </image>
                         </ImageView>
                      </graphic>
