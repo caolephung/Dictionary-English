@@ -7,8 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fffefe;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
       <Label layoutX="28.0" layoutY="135.0" prefHeight="250.0" prefWidth="253.0" style="-fx-background-color: #ecff82;" styleClass="Style" stylesheets="@Style.css" />
       <Label layoutX="322.0" layoutY="135.0" prefHeight="250.0" prefWidth="253.0" style="-fx-background-color: #ecff82;" styleClass="Style" stylesheets="@Style.css">
@@ -44,7 +42,7 @@
          <graphic>
             <ImageView fitHeight="52.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Icon/home3.png" />
+                  <Image url="@../Icon/home1.png" />
                </image>
             </ImageView>
          </graphic>
