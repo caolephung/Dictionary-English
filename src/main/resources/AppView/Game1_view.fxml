@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppLearning.Game1Controll">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fffbfb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppLearning.Game1Controll">
    <children>
 
       <Label layoutX="27.0" layoutY="180.0" prefHeight="218.0" prefWidth="540.0" style="-fx-background-color: #ecff82;" styleClass="Style" stylesheets="@Style.css" textFill="#c4b2b2" />
@@ -17,14 +17,14 @@
       <RadioButton fx:id="option4" layoutX="351.0" layoutY="307.0" mnemonicParsing="false" text="option D" />
       <RadioButton fx:id="option1" layoutX="101.0" layoutY="243.0" mnemonicParsing="false" text="option A" />
       <RadioButton fx:id="option2" layoutX="351.0" layoutY="243.0" mnemonicParsing="false" text="option B" />
-      <Button layoutX="-10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="67.0" styleClass="Style" stylesheets="@Style.css">
+      <Button layoutX="-10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="67.0" style="-fx-background-color: #fffbfb;" styleClass="Style" stylesheets="@Style.css">
          <font>
             <Font size="18.0" />
          </font>
          <graphic>
             <ImageView fitHeight="40.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Icon/muiten.png" />
+                  <Image url="@../Icon/muiten.png" />
                </image>
             </ImageView>
          </graphic>
@@ -45,7 +45,7 @@
       </Label>
       <ImageView fitHeight="118.0" fitWidth="186.0" layoutX="-17.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Icon/dauhoi.png" />
+            <Image url="@../Icon/dauhoi.png" />
          </image>
       </ImageView>
       <Button layoutX="452.0" layoutY="336.0" mnemonicParsing="false" style="-fx-background-color: #ecff82;" />
@@ -54,10 +54,17 @@
             <Image url="@../../../Icon/submit.png" />
          </image>
       </ImageView>
-      <Button fx:id="buttonNext" layoutX="426.0" layoutY="342.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #92e14c;" text="Next" textFill="#050505">
+      <Button fx:id="buttonNext" layoutX="475.0" layoutY="319.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #92e14c;">
          <font>
             <Font size="18.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="47.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icon/green-submit-button-png-0.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
    </children>
 </AnchorPane>
