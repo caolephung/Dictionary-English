@@ -255,7 +255,8 @@ public class DictionaryManagement {
                 }
             }
             else if(action == 2) {
-                
+                WordDropGame.main(null);
+                return;
             }
         }
     }
