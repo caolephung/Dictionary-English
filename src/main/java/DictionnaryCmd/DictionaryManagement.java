@@ -1,12 +1,14 @@
 package DictionnaryCmd;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class DictionaryManagement {
     protected Dictionary dictionary = new Dictionary();
 
-    private IOData_SQL IO = new IOData_SQL();
+    private IOData_SQL IO = new IOData_SQL("jdbc:mysql://localhost:3306/dictionarycmd");
 
     protected TrieDictionary trieDictionary = new TrieDictionary();
 
@@ -176,19 +178,30 @@ public class DictionaryManagement {
 
     /** Xuất dữ liệu từ điển hiện tại ra tệp. */
     public void dictionaryExportToFile(String path) throws IOException {
-        FileWriter fw = new FileWriter(path);
-        BufferedWriter bw = new BufferedWriter(fw);
-        for (Word word : dictionary.getDictionary()) {
-            bw.write(word.getWord_target() + ": " + word.getWord_explain());
-            bw.newLine();
+        // Kiểm tra xem đường dẫn có hợp lệ không
+        if (path == null || path.isEmpty()) {
+            throw new IllegalArgumentException("Đường dẫn không hợp lệ.");
         }
-        bw.close();
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
+            List<Word> tmp = new ArrayList<>(IO.getAllWords());
+
+            for (Word word : tmp) {
+                bw.write(word.getWord_target() + " : " + word.getWord_explain());
+                bw.newLine();
+            }
+
+            System.out.println("Dữ liệu đã được xuất thành công vào file: src/main/java/DataFile/outputFile.txt" );
+        } catch (IOException e) {
+            System.out.println("Đã xảy ra lỗi khi ghi vào file: " + e.getMessage());
+            throw e;
+        }
     }
 
     /** Game. */
     public void dictionaryGame() {
         System.out.print("[1] Game 1\n" +
-                        "[2] Game 2\n");
+                "[2] Game 2\n");
         while(true) {
             System.out.print("Your action: ");
             Scanner ip = new Scanner(System.in);
@@ -242,7 +255,8 @@ public class DictionaryManagement {
                 }
             }
             else if(action == 2) {
-                
+                WordDropGame.main(null);
+                return;
             }
         }
     }
@@ -251,7 +265,6 @@ public class DictionaryManagement {
     public void print(Trie node, String prefix, int maxlength, int cnt) {
         if (node.isEndOfWord()) {
             System.out.printf("%-7d| %-" + maxlength + "s| %s\n", cnt, prefix, node.getMeaning());
-            cnt++;
         }
         for (char ch : node.getChildren().keySet()) {
             Trie childNode = node.getChildren().get(ch);
