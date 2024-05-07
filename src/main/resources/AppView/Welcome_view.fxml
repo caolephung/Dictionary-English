@@ -24,7 +24,7 @@
          <graphic>
             <ImageView fitHeight="44.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Icon/traidat2.PNG" />
+                  <Image url="@../Icon/traidatt.png" />
                </image>
             </ImageView>
          </graphic>
