@@ -224,18 +224,25 @@ public class ShowAllWordsControll {
 
     @FXML
     private void DeleteWordButtonAction(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Deleteword_view.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
+        String selectedWord = AllWord.getSelectionModel().getSelectedItem();
 
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (selectedWord != null) {
+            // Xóa từ khỏi dữ liệu
+            data.remove(selectedWord);
+            dataSql.removeWord(selectedWord);
+
+            // Xóa từ khỏi ListView
+            AllWord.getItems().remove(selectedWord);
+
+            // Cập nhật WebView nếu từ bị xóa là từ đang được hiển thị
+            String currentSelectedWord = Define.getEngine().executeScript("document.body.innerText").toString();
+            if (currentSelectedWord.equalsIgnoreCase(selectedWord)) {
+                Define.getEngine().loadContent(""); // Xóa nội dung của WebView
+            }
         }
     }
+
+
 }
 
 class Word {
