@@ -13,9 +13,6 @@ public class IOData_SQL {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "Mysql123.";
 
-    public IOData_SQL() {
-
-    }
 
     public IOData_SQL(String URL) {
         this.URL = URL;
@@ -79,14 +76,14 @@ public class IOData_SQL {
         try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD)) {
             String query = "UPDATE words SET definition = ? WHERE word = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setString(1, word);
-                preparedStatement.setString(2, newDefinition);
+                preparedStatement.setString(1, newDefinition);
+                preparedStatement.setString(2, word);
 
                 int rowsAffected = preparedStatement.executeUpdate();
                 if (rowsAffected > 0) {
                     System.out.println("Thành công");
                 } else {
-                    System.out.println("");
+                    System.out.println("Khong thanh cong");
                 }
             }
         } catch (SQLException e) {
@@ -133,26 +130,26 @@ public class IOData_SQL {
         }
     }
 
-    public static void main(String[] args) {
-        String filePath = "data/V_E.txt";
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split("<html>");
-                String word = parts[0];
-                String definition = "<html>" + parts[1];
-                IOData_SQL IO = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryvnese");
-                // Thêm từ vào cơ sở dữ liệu
-                IO.addWord(word, definition);
-            }
-            System.out.println("Thêm từ thành công.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-     }
+//    public static void main(String[] args) {
+//        String filePath = "src/main/java/DataFile/inputFile.txt";
+//        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+//            String line;
+//            while ((line = br.readLine()) != null) {
+//                String[] parts = line.split(" : ");
+//                String word = parts[0];
+//                String definition = parts[1];
+//                IOData_SQL IO = new IOData_SQL("jdbc:mysql://localhost:3306/dictionarycmd");
+//                // Thêm từ vào cơ sở dữ liệu
+//                IO.addWord(word, definition);
+//            }
+//            System.out.println("Thêm từ thành công.");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 //    public static void main(String[] args) {
-//        IOData_SQL dataSql = new IOData_SQL();
-//        dataSql.searchWord("a");
+//        IOData_SQL dataSql = new IOData_SQL("jdbc:mysql://localhost:3306/dictionaryenglish");
+//        dataSql.searchWord("aba");
 //    }
 }

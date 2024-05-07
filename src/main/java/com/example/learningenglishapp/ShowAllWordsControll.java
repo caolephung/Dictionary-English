@@ -242,6 +242,40 @@ public class ShowAllWordsControll {
         }
     }
 
+    @FXML
+    private void UpdateWordButtonAction(ActionEvent event) {
+        try {
+            // Tạo một FXMLLoader mới để tải layout của view mới
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Update_view.fxml"));
+            Parent root = loader.load();
+
+            // Truy cập controller của view mới
+            UpdateControll updateControll = loader.getController();
+
+            // Lấy từ được chọn từ ListView
+            String selectedWord = AllWord.getSelectionModel().getSelectedItem();
+            Word selectedWordObj = data.get(selectedWord);
+            String definition = selectedWordObj.getDef();
+
+            // Gọi phương thức setWord trên controller của view mới và truyền từ được chọn
+            updateControll.setWord(selectedWord, definition);
+
+            updateControll.getSource(source.getText());
+            // Tạo một Scene mới từ Parent
+            Scene scene = new Scene(root);
+
+            // Lấy Stage hiện tại từ sự kiện
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+
+            // Đặt Scene cho Stage
+            stage.setScene(scene);
+
+            // Hiển thị Stage
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
 
