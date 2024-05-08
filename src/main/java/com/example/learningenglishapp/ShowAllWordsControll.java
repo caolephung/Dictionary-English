@@ -277,6 +277,16 @@ public class ShowAllWordsControll {
         }
     }
 
+
+    @FXML
+    public void voiceSourceButton(ActionEvent actionEvent) throws Exception {
+        String sourceLanguage = source.getText();
+        if(sourceLanguage.equals("English")) {
+            Sound.SpeechEnglish(AllWord.getSelectionModel().getSelectedItem());
+        } else if(sourceLanguage.equals("Vietnamese")) {
+            Sound.SpeechVietNamese(AllWord.getSelectionModel().getSelectedItem());
+        }
+    }
 }
 
 class Word {
