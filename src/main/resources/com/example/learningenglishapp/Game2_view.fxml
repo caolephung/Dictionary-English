@@ -17,10 +17,11 @@
             <Font size="24.0" />
          </font>
       </Label>
+
       <TextField fx:id="guessTextField" layoutX="179.0" layoutY="246.0" prefHeight="43.0" prefWidth="248.0">
          <font>
             <Font size="20.0" />
-         </font></TextField>
+     </font></TextField>
       <Button fx:id="submitGuessButton" layoutX="483.0" layoutY="233.0" onAction="#submitGuess" text="Submit Guess" />
       <Label fx:id="feedbackLabel" layoutX="64.0" layoutY="354.0" />
       <Button fx:id="revealAnswerButton" layoutX="18.0" layoutY="256.0" onAction="#revealAnswer" text="Reveal Answer" />
