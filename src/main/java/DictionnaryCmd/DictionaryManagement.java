@@ -255,8 +255,31 @@ public class DictionaryManagement {
                 }
             }
             else if(action == 2) {
-                WordDropGame.main(null);
-                return;
+                String filePath = "src/main/java/DataFile/words.txt"; // Default file path
+
+                try {
+                    WordDropGame game = new WordDropGame(filePath);
+                    Scanner scanner = new Scanner(System.in);
+                    while (true) {
+                        String word = game.getRandomWord();
+                        String scrambled = game.scrambleWord(word);
+                        System.out.println("Guess the word: " + scrambled);
+                        String guess = scanner.nextLine();
+                        if (guess.equalsIgnoreCase(word)) {
+                            System.out.println("Correct!");
+                        } else {
+                            System.out.println("Incorrect, the word was: " + word);
+                        }
+                        Scanner a1 = new Scanner(System.in);
+                        System.out.println("[1] Exit");
+                        System.out.println("[2] Next question");
+                        System.out.print("Your action: ");
+                        int c = a1.nextInt();
+                    if (c == 1) return;
+                    }
+                } catch (IOException e) {
+                    System.out.println("Error reading word file: " + e.getMessage());
+                }
             }
         }
     }

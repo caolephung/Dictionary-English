@@ -11,18 +11,23 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="514.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.Game2Controll">
    <children>
-      <VBox layoutX="-4.0" layoutY="67.0" prefHeight="200.0" prefWidth="610.0">
-         <children>
-            <ImageView fitHeight="196.0" fitWidth="609.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </VBox>
+      <VBox layoutX="-2.0" layoutY="56.0" prefHeight="25.0" prefWidth="610.0" />
       <Label layoutX="258.0" layoutY="17.0" text="Sorting Alphabet Game">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="64.0" layoutY="314.0" text="Chữ cái cho trước" />
-      <Button layoutX="19.0" layoutY="13.0" mnemonicParsing="false" onAction="#BackButtonAction" style="-fx-background-color: #ffffff;">
+
+      <TextField fx:id="guessTextField" layoutX="179.0" layoutY="246.0" prefHeight="43.0" prefWidth="248.0">
+         <font>
+            <Font size="20.0" />
+     </font></TextField>
+      <Button fx:id="submitGuessButton" layoutX="483.0" layoutY="233.0" onAction="#submitGuess" text="Submit Guess" />
+      <Label fx:id="feedbackLabel" layoutX="64.0" layoutY="354.0" />
+      <Button fx:id="revealAnswerButton" layoutX="18.0" layoutY="256.0" onAction="#revealAnswer" text="Reveal Answer" />
+      <Label fx:id="answerLabel" layoutX="64.0" layoutY="394.0" />
+      <Button fx:id="nextQuestionButton" layoutX="490.0" layoutY="350.0" onAction="#nextQuestion" text="Next Question" />
+      <Button layoutX="19.0" layoutY="13.0" mnemonicParsing="false" onAction="#BackButtonAction">
          <graphic>
             <ImageView fitHeight="62.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,15 +36,10 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="481.0" layoutY="332.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="76.0" style="-fx-background-color: #ffffff;">
-         <graphic>
-            <ImageView fitHeight="62.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imageAndicon/Icon/submit.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <TextField layoutX="307.0" layoutY="310.0" promptText="Nhập đáp án" />
+      <Label fx:id="scrambledWordLabel" layoutX="171.0" layoutY="82.0" prefHeight="111.0" prefWidth="264.0" text="Scrambled Word">
+         <font>
+            <Font size="44.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
