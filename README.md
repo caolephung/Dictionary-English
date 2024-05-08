@@ -15,7 +15,8 @@ The application is designed to support learning English. The application is writ
 5. The application use E_V.txt, V_E.txt files and Database to store data.
 
 ## UML
-
+[UML diagram](src/main/resources/com/example/learningenglishapp/imageAndicon/UML1.jpg)
+[UML diagram](src/main/resources/com/example/learningenglishapp/imageAndicon/UML2.jpg)
 ## Installation
 1. Clone the project from the repository.
 2. Open the project in the IDE.
