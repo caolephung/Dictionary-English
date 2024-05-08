@@ -3,8 +3,8 @@
 ## Author
 * Group:
     - [**Cao Lê Phụng**](https://github.com/caolephung) - 22022176
-    - [**Vũ Hải Triều**](https://github.com/) - 22026514
-    - [**Lương Quốc Hùng**](https://github.com/) - 22026527
+    - [**Vũ Hải Triều**](https://github.com/Trieu1802) - 22022111
+    - [**Lương Quốc Hùng**](https://github.com/luonghung123) - 22022136
 
 ## Description
 The application is designed to support learning English. The application is written in Java and uses the JavaFX library. The application is based on the MVC model. The application has two types of dictionaries: English-Vietnamese and Vietnamese-English. The application use text files and SQL DB to store data.
