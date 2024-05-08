@@ -25,8 +25,14 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="57.0" layoutY="219.0" text="Luật chơi:..." />
-      <Label layoutX="359.0" layoutY="219.0" text="Luật chơi:..." />
+      <Label layoutX="57.0" layoutY="219.0" prefHeight="56.0" prefWidth="222.0" text="Choose the best answer">
+      <font>
+         <Font size="18.0" />
+      </font></Label>
+      <Label layoutX="348.0" layoutY="219.0" prefHeight="123.0" prefWidth="202.0" text="Combine the given letters into meaningful words (King of English)" wrapText="true">
+      <font>
+         <Font size="18.0" />
+      </font></Label>
       <Label layoutX="24.0" layoutY="66.0" prefHeight="52.0" prefWidth="552.0" style="-fx-background-color: #ecff82;" styleClass="Style" stylesheets="@Style.css" />
       <Button layoutX="120.0" layoutY="74.0" mnemonicParsing="false" onAction="#game1ButtonAction" style="-fx-background-color: #92e14c;" text="Start">
          <font>
