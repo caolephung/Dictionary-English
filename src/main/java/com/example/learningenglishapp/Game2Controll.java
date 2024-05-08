@@ -68,7 +68,7 @@ public class Game2Controll {
 
     @FXML
     private void revealAnswer(ActionEvent event) {
-        answerLabel.setText("The correct word was: " + currentWord);
+        answerLabel.setText(currentWord);
     }
 
     @FXML

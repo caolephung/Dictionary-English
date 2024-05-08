@@ -120,12 +120,17 @@ public class Game1Controll {
             displayQuestion();
             resultLabel.setText("");
         } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Endgame_view.fxml"));
+            time.stop();
+
+            Stage currentStage = (Stage) resultLabel.getScene().getWindow();
+            currentStage.close();
+
             try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Endgame_view.fxml"));
                 Parent root = loader.load();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.show();
+                Stage newStage = new Stage();
+                newStage.setScene(new Scene(root));
+                newStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
