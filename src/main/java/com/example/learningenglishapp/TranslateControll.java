@@ -120,22 +120,33 @@ public class TranslateControll {
     }
 
 
-    /** Đọc file âm thanh. */
-//    @FXML
-//    private void voiceSourceButton(String sourceLanguage) {
-//        if(sourceLanguage.equals("English")) {
-//            Sound.textToSpeech(inputText.getText());
-//        } else if(sourceLanguage.equals("Vietnamese")) {
-//            Sound.textToSpeech(inputText.getText());
-//        }
-//    }
+    @FXML
+    public void voiceSourceButton(ActionEvent actionEvent) throws Exception {
+        String sourceLanguage = source.getText();
+        if(sourceLanguage.equals("English")) {
+            Sound.SpeechEnglish(inputText.getText());
+        } else if(sourceLanguage.equals("Vietnamese")) {
+            Sound.SpeechVietNamese(inputText.getText());
+        }
+    }
 
-//    @FXML
-//    private void voiceTargetButton(String targetLanguage) {
-//        if(targetLanguage.equals("Vietnamese")) {
-//            Sound.textToSpeech(outputText.getText());
-//        } else if(targetLanguage.equals("English")) {
-//            Sound.textToSpeech(outputText.getText());
-//        }
-//    }
+    @FXML
+    public void voiceTargetButton(ActionEvent actionEvent) throws Exception {
+        String targetLanguage = target.getText();
+        if(targetLanguage.equals("English")) {
+            Sound.SpeechEnglish(outputText.getText());
+        } else if(targetLanguage.equals("Vietnamese")) {
+            Sound.SpeechVietNamese(outputText.getText());
+        }
+    }
+
+
+    @FXML
+    private void voiceTargetButton(String sourceLanguage) throws Exception {
+        if(sourceLanguage.equals("English")) {
+            Sound.SpeechEnglish(outputText.getText());
+        } else if(sourceLanguage.equals("Vietnamese")) {
+            Sound.SpeechVietNamese(outputText.getText());
+        }
+    }
 }

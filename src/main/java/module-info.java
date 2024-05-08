@@ -10,6 +10,8 @@ module com.example.learningenglishapp {
     requires kotlin.stdlib;
     requires java.desktop;
     requires java.sql;
+    requires freetts;
+    requires voicerss.tts;
 
     opens com.example.learningenglishapp to javafx.fxml;
     exports com.example.learningenglishapp;
