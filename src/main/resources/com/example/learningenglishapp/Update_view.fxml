@@ -13,35 +13,44 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.UpdateControll">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningenglishapp.UpdateControll">
     <children>
         <HBox layoutY="-10.0" prefHeight="94.0" prefWidth="600.0" style="-fx-background-color: #ecff82;">
             <children>
-                <Pane prefHeight="94.0" prefWidth="601.0">
+                <Pane prefHeight="84.0" prefWidth="600.0">
                     <children>
                         <Label layoutX="241.0" layoutY="14.0" prefHeight="45.0" prefWidth="106.0" text="Update">
                             <font>
                                 <Font size="30.0" />
                             </font>
                         </Label>
-                        <ImageView fitHeight="45.0" fitWidth="96.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../Icon/muiten.png" />
-                            </image>
+                  <Button layoutY="14.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="96.0" style="-fx-background-color: #ecff82;">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imageAndicon/Icon/muiten.png" />
+                           </image>
                         </ImageView>
-                  <Label fx:id="Source" layoutX="157.0" layoutY="59.0" text="English" />
-                  <Button layoutX="453.0" layoutY="24.0" mnemonicParsing="false" onAction="#BackButtonAction" text="Back" />
+                     </graphic>
+                  </Button>
                     </children>
                 </Pane>
             </children>
         </HBox>
         <HBox layoutY="84.0" prefHeight="45.0" prefWidth="607.0">
             <children>
-                <Pane prefHeight="69.0" prefWidth="602.0">
+                <Pane prefHeight="58.0" prefWidth="602.0">
                     <children>
                         <Text layoutX="68.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Từ cần sửa nghĩa :" wrappingWidth="95.99999999999994" />
                         <Text fx:id="Word" layoutX="174.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="118.40003967285156" />
-                  <Button layoutX="487.0" layoutY="10.0" mnemonicParsing="false" onAction="#UpdateWordButtonAction" text="ok" />
+                  <Button layoutX="501.0" layoutY="7.0" mnemonicParsing="false" onAction="#UpdateWordButtonAction" style="-fx-background-color: #ecff82;">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imageAndicon/Icon/—Pngtree—checkmark%20or%20tick%20mark%20approval_6655004.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                     </children>
                 </Pane>
             </children>
@@ -50,7 +59,7 @@
             <children>
                 <Pane prefHeight="258.0" prefWidth="607.0">
                     <children>
-                        <WebView fx:id="Explain" prefHeight="250.0" prefWidth="294.0" />
+                        <WebView fx:id="Explain" layoutX="7.0" layoutY="4.0" prefHeight="250.0" prefWidth="294.0" />
                     </children>
                 </Pane>
             </children>
