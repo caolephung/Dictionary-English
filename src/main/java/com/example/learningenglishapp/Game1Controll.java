@@ -2,6 +2,7 @@ package com.example.learningenglishapp;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.scene.control.*;
 import javafx.util.Duration;
 import DictionnaryCmd.ListQuestion;
 import DictionnaryCmd.Question;
@@ -10,9 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +18,10 @@ import java.io.IOException;
 import com.almasb.fxgl.time.Timer;
 
 public class Game1Controll {
+    @FXML
+    private ToggleGroup answer;
+
+    private int questionCount = 0;
     private ListQuestion listQuestion;
     private int currentQuestionIndex;
 
@@ -68,6 +70,7 @@ public class Game1Controll {
         currentQuestionIndex = 0;
         displayQuestion();
         initializeTimer();
+        time.play();
     }
 
     private void displayQuestion() {
@@ -101,6 +104,8 @@ public class Game1Controll {
         }
     }
 
+
+
     @FXML
     private void nextQuestion() {
         resetTimer();
@@ -115,7 +120,21 @@ public class Game1Controll {
             displayQuestion();
             resultLabel.setText("");
         } else {
-            resultLabel.setText("Game Over!");
+            time.stop();
+
+            Stage currentStage = (Stage) resultLabel.getScene().getWindow();
+            currentStage.close();
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Endgame_view.fxml"));
+                Parent root = loader.load();
+                Stage newStage = new Stage();
+                newStage.setScene(new Scene(root));
+                newStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
